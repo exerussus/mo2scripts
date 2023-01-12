@@ -1,6 +1,7 @@
 import random
 from scripts.base import BaseScript
-import autoit
+import time
+
 
 class DestroyerDagger(BaseScript):
 
@@ -31,11 +32,11 @@ class DestroyerDagger(BaseScript):
 
     def moving(self):
         self.hold('s')
-        self.wait(1)
+        time.sleep(1)
         self.release("s")
-        self.wait(1)
+        self.wait(1.03)
         self.hold('w')
-        self.wait(1)
+        time.sleep(1)
         self.release("w")
         self.wait(1.03)
 
@@ -56,17 +57,13 @@ class DestroyerDagger(BaseScript):
 
         self.wait(0.5)
 
-
-
     def attacker(self):
         self.hold("q")
-        self.wait(0.25)  # 0.25
+        time.sleep(0.49)  # Зарядка удара
         print()
         self.release("q")
+        time.sleep(0.35)  # Отмашка
         print("attacker")
-        self.wait(0.55)
-        print()
-
 
     def weapon_changer(self, key):
         self.wait(1)

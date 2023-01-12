@@ -1,6 +1,6 @@
 import random
 from scripts.base import BaseScript
-import autoit
+
 
 class DestroyerPickAxe(BaseScript):
 

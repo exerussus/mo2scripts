@@ -2,6 +2,7 @@ import random
 from scripts.base import BaseScript
 import pyautogui
 
+
 class Attacker(BaseScript):
 
     def __init__(self):

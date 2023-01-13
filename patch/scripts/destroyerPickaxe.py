@@ -1,15 +1,17 @@
 import random
 from scripts.base import BaseScript
 import autoit
+import time
 
-class DestroyerDagger(BaseScript):
+
+class DestroyerPickAxe(BaseScript):
 
     def __init__(self):
         super().__init__()
-        self.name = "destroyerDagger"
+        self.name = "destroyerPickaxe"
         self.keyActivate = self.keys[self.name]
-        self.attacks_count = 147  #  147
-        self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"]
+        self.attacks_count = 234  # 1866  933  467
+        self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"] #
         self.started = False
 
     def master_action(self):
@@ -30,43 +32,41 @@ class DestroyerDagger(BaseScript):
         print("jumping")
 
     def moving(self):
-        self.hold('s')
-        self.wait(1)
-        self.release("s")
-        self.wait(1)
-        self.hold('w')
-        self.wait(1)
-        self.release("w")
-        self.wait(1.03)
+        self.hold_and_release("s", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("w", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("s", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("w", 1.6)
+        time.sleep(0.5)
+
+    def attack_loop(self):
+        count = 0
+        while self.attacks_count > count:
+            if self.isStop or self.exitKey:
+                break
+            self.attacker()
+            count += 1
 
     def attack_and_antiafk(self):
 
-        self.wait(1.03)
-        count = 0
-        while self.attacks_count > count:
-            self.attacker()
-            count += 1
-
-        self.moving()
-
-        count = 0
-        while self.attacks_count > count:
-            self.attacker()
-            count += 1
-
-        self.wait(0.5)
-
-
+        for _ in range(8):
+            self.wait(1.03)
+            self.attack_loop()
+            self.wait(1.03)
+            self.moving()
+            self.wait(1.03)
 
     def attacker(self):
-        self.hold("q")
-        self.wait(0.25)  # 0.25
-        print()
-        self.release("q")
-        print("attacker")
-        self.wait(0.55)
-        print()
+        if not self.isStop and not self.exitKey:
+            self.hold("q")
+            time.sleep(0.46)  # 0.25
+            print()
+            self.release("q")
 
+            time.sleep(0.55)
+            print("attacker")
 
     def weapon_changer(self, key):
         self.wait(1)
@@ -87,7 +87,7 @@ class DestroyerDagger(BaseScript):
 
 
 def run():
-    script_class = DestroyerDagger()
+    script_class = DestroyerPickAxe()
     script_class.custom()
 
 

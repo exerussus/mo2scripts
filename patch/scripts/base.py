@@ -26,15 +26,11 @@ class BaseScript:
     def startFunction(self):
         self.isStop = False
 
-    def hold_and_release_wait(self, key: str, hold_time: float):
-        self.hold(key)
-        self.wait(hold_time)
-        self.release(key)
-
-    def hold_and_release_sleep(self, key: str, hold_time: float):
+    def hold_and_release(self, key: str, hold_time: float):
         self.hold(key)
         time.sleep(hold_time)
         self.release(key)
+
     def checkExitKey(self):
         if keyboard.is_pressed("f9"):
             self.exitKey = True

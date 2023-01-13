@@ -8,10 +8,9 @@ import tools.jsonOper
 class BaseScript:
 
     def __init__(self):
-        self.keys_data = tools.jsonOper.loadKeys()
+        self.keys = tools.jsonOper.loadKeys()
         self.name = "base"
-        self.keys = self.keys_data[self.name]
-        self.keyActivate = self.keys["activate_key"]
+        self.keyActivate = self.keys[self.name]
         self.game = "Mortal Online 2  "
         self.exitKey = False
         self.isStop = False
@@ -27,15 +26,11 @@ class BaseScript:
     def startFunction(self):
         self.isStop = False
 
-    def hold_and_release_wait(self, key: str, hold_time: float):
-        self.hold(key)
-        self.wait(hold_time)
-        self.release(key)
-
-    def hold_and_release_sleep(self, key: str, hold_time: float):
+    def hold_and_release(self, key: str, hold_time: float):
         self.hold(key)
         time.sleep(hold_time)
         self.release(key)
+
     def checkExitKey(self):
         if keyboard.is_pressed("f9"):
             self.exitKey = True

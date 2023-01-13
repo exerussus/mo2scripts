@@ -17,14 +17,13 @@ class MortalScripts(BaseScript):
 
         # Подключенные скрипты
         self.scripts_pack = {
-            Domination(),
-            AttackSpam(),
-            Attacker(),
-            FeintRightAttackOverhead(),
-            Spacer(),
-            MentalTraining(),
+            # Domination(),
+            # AttackSpam(),
+            # Attacker(),
+            # Spacer(),
+            # MentalTraining(),
             DestroyerPickAxe(),
-            DestroyerDagger()
+            # DestroyerDagger()
         }
 
     def run(self):

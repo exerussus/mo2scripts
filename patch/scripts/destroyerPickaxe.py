@@ -9,17 +9,10 @@ class DestroyerPickAxe(BaseScript):
     def __init__(self):
         super().__init__()
         self.name = "destroyerPickaxe"
-        self.keys = self.keys_data[self.name]
-        self.keyActivate = self.keys["activate_key"]
-
-        self.attacks_count = 234  # 1866  933  467  234
+        self.keyActivate = self.keys[self.name]
+        self.attacks_count = 234  # 1866  933  467
         self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"] #
         self.started = False
-        self.attack_overhead = self.keys["key1"]["value"]
-        self.take_weapon = self.keys["key2"]["value"]
-        self.jump_key = self.keys["key3"]["value"]
-        self.key_forward = self.keys["key4"]["value"]
-        self.key_backward = self.keys["key5"]["value"]
 
     def master_action(self):
         if not self.started:
@@ -30,19 +23,23 @@ class DestroyerPickAxe(BaseScript):
         self.jumping()
 
     def jumping(self):
-        self.hold_and_release_wait(self.jump_key, 0.3)
+
+        self.hold("space")
+        self.wait(0.3)
+        self.release("space")
+
         self.wait(1)
         print("jumping")
 
     def moving(self):
-        self.hold_and_release_wait("s", 2.4)
-        self.wait(0.5)
-        self.hold_and_release_wait("w", 2.4)
-        self.wait(0.5)
-        self.hold_and_release_wait("s", 2.4)
-        self.wait(0.5)
-        self.hold_and_release_wait("w", 2.6)
-        self.wait(0.5)
+        self.hold_and_release("s", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("w", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("s", 1.4)
+        time.sleep(0.5)
+        self.hold_and_release("w", 1.6)
+        time.sleep(0.5)
 
     def attack_loop(self):
         count = 0
@@ -63,17 +60,19 @@ class DestroyerPickAxe(BaseScript):
 
     def attacker(self):
         if not self.isStop and not self.exitKey:
-            self.hold_and_release_wait(self.attack_overhead, 0.295)
+            self.hold("q")
+            time.sleep(0.46)  # 0.25
+            print()
+            self.release("q")
+
             time.sleep(0.55)
             print("attacker")
-            print(self.keyActivate)
-            print(self.attack_overhead)
 
     def weapon_changer(self, key):
         self.wait(1)
         self.press(key)
         self.wait(2)
-        self.press(self.take_weapon)
+        self.press('x')
         self.wait(1)
 
     def customLoop(self):

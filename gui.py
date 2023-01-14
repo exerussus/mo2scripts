@@ -43,7 +43,6 @@ def run():
 
 def do():
     setting()
-    run()
     exit(0)
 
 
@@ -109,7 +108,7 @@ move_forward.grid(column=2, row=9)
 
 lbl_pass = Label(text="               ")
 lbl_pass.grid(column=5)
-btn = Button(window, text="Запуск", command=do)
+btn = Button(window, text="Принять настройки", command=do)
 btn.grid(column=6, row=0)
 
 

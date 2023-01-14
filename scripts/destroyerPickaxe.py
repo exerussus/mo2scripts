@@ -32,7 +32,7 @@ class DestroyerPickAxe(BaseScript):
         if not self.started:
             self.started = True
             for key in self.weapon_slot:
-                self.actually_weapon = key
+                self.actually_weapon = key if "+" not in key else f"shift{key}"
                 self.weapon_changer(key)
                 self.attack_and_antiafk()
         self.jumping()
@@ -78,9 +78,10 @@ class DestroyerPickAxe(BaseScript):
             self.attacker()
             self.attack_actually_count_all += 1
             count += 1
-            print(f"Кирка клавиши: {self.actually_weapon}")
+            print(f"Кирка клавиши: {self.actually_weapon}                    Пауза: F7        Закрыть: F9")
             print(f"Осталось ударов в цикле: {self.attacks_count - count}")
             print(f"Осталось ударов всего: {(self.attacks_count * 8) - self.attack_actually_count_all}")
+            print(f"Предположительная прочность кирки: {round((1866*0.14 - self.attack_actually_count_all*0.14)*100)/100}")
             print()
 
     def attack_and_antiafk(self):

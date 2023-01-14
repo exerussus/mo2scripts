@@ -41,9 +41,13 @@ class DestroyerPickAxe(BaseScript):
     def moving(self):
         self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
         self.wait(0.5)
+        self.jumping()
+        self.wait(0.5)
         self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
         self.wait(0.5)
         self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
+        self.wait(0.5)
+        self.jumping()
         self.wait(0.5)
         self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
         self.wait(0.5)

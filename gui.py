@@ -31,6 +31,8 @@ def setting():
         settings["key8"]["value"] = move_backward.get()
     if move_forward.get() != "":
         settings["key9"]["value"] = move_forward.get()
+    if attack_count.get() != "":
+        settings["key10"]["value"] = attack_count.get()
 
     data["destroyerPickaxe"] = settings
     tools.jsonOper.saveKeys(data)
@@ -109,6 +111,9 @@ move_backward.grid(column=2, row=8)
 
 move_forward = Entry(window, width=10)
 move_forward.grid(column=2, row=9)
+
+attack_count = Entry(window, width=10)
+attack_count.grid(column=2, row=10)
 
 
 lbl_pass = Label(text="               ")

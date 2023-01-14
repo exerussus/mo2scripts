@@ -1,4 +1,4 @@
-
+from scripts.destroyerPickaxe import DestroyerPickAxe
 from scripts.base import BaseScript
 from scripts.domination import Domination
 from scripts.attackspam import AttackSpam
@@ -6,8 +6,7 @@ from scripts.attacker import Attacker
 from scripts.feintRightAttackOverhead import FeintRightAttackOverhead
 from scripts.spacer import Spacer
 from scripts.mentalTraining import MentalTraining
-from scripts.destroyerPickaxe import DestroyerPickAxe
-from scripts.destroyerDagger import DestroyerDagger
+
 
 
 class MortalScripts(BaseScript):
@@ -23,7 +22,6 @@ class MortalScripts(BaseScript):
             # Spacer(),
             # MentalTraining(),
             DestroyerPickAxe(),
-            # DestroyerDagger()
         }
 
     def run(self):

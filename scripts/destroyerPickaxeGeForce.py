@@ -4,11 +4,12 @@ import autoit
 import time
 
 
-class DestroyerPickAxe(BaseScript):
+class DestroyerPickAxeGeForce(BaseScript):
 
     def __init__(self):
         super().__init__()
-        self.name = "destroyerPickaxe"
+        self.game = "Mortal Online 2 в GeForce NOW"
+        self.name = "destroyerPickaxeGeForce"
         self.keys = self.keys_data[self.name]
         self.keyActivate = self.keys["activate_key"]
 
@@ -20,10 +21,6 @@ class DestroyerPickAxe(BaseScript):
         self.jump_key = self.keys["key3"]["value"]
         self.key_forward = self.keys["key4"]["value"]
         self.key_backward = self.keys["key5"]["value"]
-        self.hold_attack_time = float(self.keys["key6"]["value"])
-        self.after_attack_time = float(self.keys["key7"]["value"])
-        self.backward_walking_time = float(self.keys["key8"]["value"])
-        self.forward_walking_time = float(self.keys["key9"]["value"])
 
     def master_action(self):
         if not self.started:
@@ -39,13 +36,13 @@ class DestroyerPickAxe(BaseScript):
         print("jumping")
 
     def moving(self):
-        self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
+        self.hold_and_release_wait("s", 2.4)
         self.wait(0.5)
-        self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
+        self.hold_and_release_wait("w", 2.4)
         self.wait(0.5)
-        self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
+        self.hold_and_release_wait("s", 2.4)
         self.wait(0.5)
-        self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
+        self.hold_and_release_wait("w", 2.6)
         self.wait(0.5)
 
     def attack_loop(self):
@@ -67,8 +64,8 @@ class DestroyerPickAxe(BaseScript):
 
     def attacker(self):
         if not self.isStop and not self.exitKey:
-            self.hold_and_release_wait(self.attack_overhead, self.hold_attack_time)
-            time.sleep(self.after_attack_time)
+            self.hold_and_release_wait(self.attack_overhead, 0.295)
+            time.sleep(0.55)
             print("attacker")
             print(self.keyActivate)
             print(self.attack_overhead)
@@ -92,7 +89,7 @@ class DestroyerPickAxe(BaseScript):
 
 
 def run():
-    script_class = DestroyerPickAxe()
+    script_class = DestroyerPickAxeGeForce()
     script_class.custom()
 
 

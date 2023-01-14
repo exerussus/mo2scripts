@@ -1,6 +1,13 @@
 import json
 
 
+def onlySaveKeys(keys):
+
+    keys_data = json.dumps(keys)
+    with open("../data/keys.json", "w") as file:
+        file.write(keys_data)
+
+
 def saveKeys(keys):
 
     keys_data = json.dumps(keys)
@@ -71,25 +78,20 @@ dct = {"domination": {
                     },
        "destroyerPickaxe": {
                         "activate_key": "f6",
-                        "key1": {"name": "attack_overhead", "value": "q"},  # атака сверху
-                        "key2": {"name": "take_weapon", "value": "x"},
-                        "key3": {"name": "jump_key", "value": "space"},
-                        "key4": {"name": "key_forward", "value": "w"},
-                        "key5": {"name": "key_backward", "value": "s"},
-                        "key6": {"name": "", "value": ""},
+                        "key1": {"name": "Атака сверху", "value": "q"},  # атака сверху
+                        "key2": {"name": "Вытащить оружие", "value": "x"},  # вытащить оружие
+                        "key3": {"name": "Прыжок", "value": "space"},  # прыжок
+                        "key4": {"name": "Вперёд", "value": "w"},  # вперёд
+                        "key5": {"name": "Назад", "value": "s"},  # назад
+                        "key6": {"name": "Зарядка удара", "value": "0.295"},  # зарядка удара
+                        "key7": {"name": "Отмашка", "value": "0.55"},  # отмашка
+                        "key8": {"name": "Время ходьбы назад", "value": "2.4"},  # время ходьбы назад
+                        "key9": {"name": "Время ходьбы вперёд", "value": "2.6"},  # время ходьбы вперёд
                     },
-       "destroyerDagger": {
-                        "activate_key": "f8",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
-                    },}
+       }
 
 
 if __name__ == "__main__":
-    saveKeys(dct)
+    onlySaveKeys(dct)
     # print(loadKeys())
 

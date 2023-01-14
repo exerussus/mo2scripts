@@ -13,7 +13,7 @@ class DestroyerPickAxe(BaseScript):
         self.keyActivate = self.keys["activate_key"]
 
         self.attacks_count = 234  # 1866  933  467  234
-        self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"] #
+        self.weapon_slot = ["+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"] #  "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
         self.started = False
         self.attack_overhead = self.keys["key1"]["value"]
         self.take_weapon = self.keys["key2"]["value"]
@@ -38,18 +38,30 @@ class DestroyerPickAxe(BaseScript):
         self.wait(1)
         print("jumping")
 
+    def random_float(self):
+        return random.uniform(0.7, 1.3)
+
     def moving(self):
-        self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
-        self.wait(0.5)
+        multiply = self.random_float()
+        time_backward = self.backward_walking_time * multiply
+        time_forward = self.forward_walking_time * multiply
+
+        self.hold_and_release_wait(self.key_backward, time_backward)
+        self.wait(0.2)
         self.jumping()
+        self.wait(0.2)
+        self.hold_and_release_wait(self.key_forward, time_forward)
         self.wait(0.5)
-        self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
-        self.wait(0.5)
-        self.hold_and_release_wait(self.key_backward, self.backward_walking_time)
-        self.wait(0.5)
+
+        multiply = self.random_float()
+        time_backward = self.backward_walking_time * multiply
+        time_forward = self.forward_walking_time * multiply
+
+        self.hold_and_release_wait(self.key_backward, time_backward)
+        self.wait(0.2)
         self.jumping()
-        self.wait(0.5)
-        self.hold_and_release_wait(self.key_forward, self.forward_walking_time)
+        self.wait(0.2)
+        self.hold_and_release_wait(self.key_forward, time_forward)
         self.wait(0.5)
 
     def attack_loop(self):

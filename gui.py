@@ -41,6 +41,11 @@ def run():
     mortal.run()
 
 
+def reset():
+    tools.jsonOper.reset()
+    exit(0)
+
+
 def do():
     setting()
     exit(0)
@@ -110,6 +115,8 @@ lbl_pass = Label(text="               ")
 lbl_pass.grid(column=5)
 btn = Button(window, text="Принять настройки", command=do)
 btn.grid(column=6, row=0)
+btn = Button(window, text="Сбросить", command=reset)
+btn.grid(column=6, row=2)
 
 
 

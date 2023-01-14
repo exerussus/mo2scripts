@@ -8,6 +8,12 @@ def onlySaveKeys(keys):
         file.write(keys_data)
 
 
+def reset():
+    keys_data = json.dumps(dct)
+    with open("data/keys.json", "w") as file:
+        file.write(keys_data)
+
+
 def saveKeys(keys):
 
     keys_data = json.dumps(keys)
@@ -85,8 +91,8 @@ dct = {"domination": {
                         "key5": {"name": "Назад", "value": "s"},  # назад
                         "key6": {"name": "Зарядка удара", "value": "0.295"},  # зарядка удара
                         "key7": {"name": "Отмашка", "value": "0.55"},  # отмашка
-                        "key8": {"name": "Время ходьбы назад", "value": "2.4"},  # время ходьбы назад
-                        "key9": {"name": "Время ходьбы вперёд", "value": "2.6"},  # время ходьбы вперёд
+                        "key8": {"name": "Время ходьбы назад", "value": "3"},  # время ходьбы назад
+                        "key9": {"name": "Время ходьбы вперёд", "value": "3.1"},  # время ходьбы вперёд
                     },
        }
 

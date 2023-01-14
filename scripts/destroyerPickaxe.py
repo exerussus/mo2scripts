@@ -48,7 +48,8 @@ class DestroyerPickAxe(BaseScript):
 
         self.hold_and_release_wait(self.key_backward, time_backward)
         self.wait(0.2)
-        self.jumping()
+        for _ in range(random.choice([1, 2])):
+            self.jumping()
         self.wait(0.2)
         self.hold_and_release_wait(self.key_forward, time_forward)
         self.wait(0.5)
@@ -59,7 +60,8 @@ class DestroyerPickAxe(BaseScript):
 
         self.hold_and_release_wait(self.key_backward, time_backward)
         self.wait(0.2)
-        self.jumping()
+        for _ in range(random.choice([1, 2])):
+            self.jumping()
         self.wait(0.2)
         self.hold_and_release_wait(self.key_forward, time_forward)
         self.wait(0.5)

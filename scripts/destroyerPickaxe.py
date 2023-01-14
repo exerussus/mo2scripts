@@ -33,6 +33,7 @@ class DestroyerPickAxe(BaseScript):
             self.started = True
             for key in self.weapon_slot:
                 self.actually_weapon = key if "+" not in key else f"shift{key}"
+                self.attack_actually_count_all = 0
                 self.weapon_changer(key)
                 self.attack_and_antiafk()
         self.jumping()

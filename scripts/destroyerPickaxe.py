@@ -13,7 +13,18 @@ class DestroyerPickAxe(BaseScript):
         self.keyActivate = self.keys["activate_key"]
         self.full_attacks_count = int(self.keys["key10"]["value"])
         self.attacks_count = int(round(self.full_attacks_count / 8))  # 1866  933  467  234
-        self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+0"]  #
+
+        self.cell_1 = self.keys["key11"]["value"]
+        self.cell_2 = self.keys["key12"]["value"]
+        self.cell_3 = self.keys["key13"]["value"]
+        self.cell_4 = self.keys["key14"]["value"]
+        self.cell_5 = self.keys["key15"]["value"]
+        self.cell_6 = self.keys["key16"]["value"]
+        self.cell_7 = self.keys["key17"]["value"]
+        self.cell_8 = self.keys["key18"]["value"]
+        self.cell_9 = self.keys["key19"]["value"]
+
+        self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", self.cell_1, self.cell_2, self.cell_3, self.cell_4, self.cell_5, self.cell_6, self.cell_7, self.cell_8, self.cell_9]  #
         self.started = False
         self.attack_overhead = self.keys["key1"]["value"]
         self.take_weapon = self.keys["key2"]["value"]
@@ -24,6 +35,9 @@ class DestroyerPickAxe(BaseScript):
         self.after_attack_time = float(self.keys["key7"]["value"])
         self.backward_walking_time = float(self.keys["key8"]["value"])
         self.forward_walking_time = float(self.keys["key9"]["value"])
+
+
+
         self.attack_actually_count_all = 0
         self.actually_weapon = ""
 

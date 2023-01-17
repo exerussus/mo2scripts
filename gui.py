@@ -31,26 +31,30 @@ def setting():
         settings["key8"]["value"] = move_backward.get()
     if move_forward.get() != "":
         settings["key9"]["value"] = move_forward.get()
+
     if attack_count.get() != "":
         settings["key10"]["value"] = attack_count.get()
+    if durability_per_attack.get() != "":
+        settings["key11"]["value"] = durability_per_attack.get()
+
     if cell_1.get() != "":
-        settings["key11"]["value"] = cell_1.get()
+        settings["key12"]["value"] = cell_1.get()
     if cell_2.get() != "":
-        settings["key12"]["value"] = cell_2.get()
+        settings["key13"]["value"] = cell_2.get()
     if cell_3.get() != "":
-        settings["key13"]["value"] = cell_3.get()
+        settings["key14"]["value"] = cell_3.get()
     if cell_4.get() != "":
-        settings["key14"]["value"] = cell_4.get()
+        settings["key15"]["value"] = cell_4.get()
     if cell_5.get() != "":
-        settings["key105"]["value"] = cell_5.get()
+        settings["key16"]["value"] = cell_5.get()
     if cell_6.get() != "":
-        settings["key16"]["value"] = cell_6.get()
+        settings["key17"]["value"] = cell_6.get()
     if cell_7.get() != "":
-        settings["key17"]["value"] = cell_7.get()
+        settings["key18"]["value"] = cell_7.get()
     if cell_8.get() != "":
-        settings["key18"]["value"] = cell_8.get()
+        settings["key19"]["value"] = cell_8.get()
     if cell_9.get() != "":
-        settings["key19"]["value"] = cell_9.get()
+        settings["key20"]["value"] = cell_9.get()
 
     data["destroyerPickaxe"] = settings
     tools.jsonOper.saveKeys(data)
@@ -133,32 +137,35 @@ move_forward.grid(column=2, row=9)
 attack_count = Entry(window, width=10)
 attack_count.grid(column=2, row=10)
 
+durability_per_attack = Entry(window, width=10)
+durability_per_attack.grid(column=2, row=11)
+
 cell_1 = Entry(window, width=10)
-cell_1.grid(column=2, row=11)
+cell_1.grid(column=2, row=12)
 
 cell_2 = Entry(window, width=10)
-cell_2.grid(column=2, row=12)
+cell_2.grid(column=2, row=13)
 
 cell_3 = Entry(window, width=10)
-cell_3.grid(column=2, row=13)
+cell_3.grid(column=2, row=14)
 
 cell_4 = Entry(window, width=10)
-cell_4.grid(column=2, row=14)
+cell_4.grid(column=2, row=15)
 
 cell_5 = Entry(window, width=10)
-cell_5.grid(column=2, row=15)
+cell_5.grid(column=2, row=16)
 
 cell_6 = Entry(window, width=10)
-cell_6.grid(column=2, row=16)
+cell_6.grid(column=2, row=17)
 
 cell_7 = Entry(window, width=10)
-cell_7.grid(column=2, row=17)
+cell_7.grid(column=2, row=18)
 
 cell_8 = Entry(window, width=10)
-cell_8.grid(column=2, row=18)
+cell_8.grid(column=2, row=19)
 
 cell_9 = Entry(window, width=10)
-cell_9.grid(column=2, row=19)
+cell_9.grid(column=2, row=20)
 
 
 lbl_pass = Label(text="               ")

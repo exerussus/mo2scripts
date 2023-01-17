@@ -11,18 +11,19 @@ class DestroyerPickAxe(BaseScript):
         self.name = "destroyerPickaxe"
         self.keys = self.keys_data[self.name]
         self.keyActivate = self.keys["activate_key"]
-        self.full_attacks_count = int(self.keys["key10"]["value"])
-        self.attacks_count = int(round(self.full_attacks_count / 8))  # 1866  933  467  234
+        self.durability = int(self.keys["key10"]["value"])
+        self.durability_per_attack = float(self.keys["key11"]["value"])
+        self.attacks_count = int(round(self.durability / self.durability_per_attack / 8))  # 1866  933  467  234
 
-        self.cell_1 = self.keys["key11"]["value"]
-        self.cell_2 = self.keys["key12"]["value"]
-        self.cell_3 = self.keys["key13"]["value"]
-        self.cell_4 = self.keys["key14"]["value"]
-        self.cell_5 = self.keys["key15"]["value"]
-        self.cell_6 = self.keys["key16"]["value"]
-        self.cell_7 = self.keys["key17"]["value"]
-        self.cell_8 = self.keys["key18"]["value"]
-        self.cell_9 = self.keys["key19"]["value"]
+        self.cell_1 = self.keys["key12"]["value"]
+        self.cell_2 = self.keys["key13"]["value"]
+        self.cell_3 = self.keys["key14"]["value"]
+        self.cell_4 = self.keys["key15"]["value"]
+        self.cell_5 = self.keys["key16"]["value"]
+        self.cell_6 = self.keys["key17"]["value"]
+        self.cell_7 = self.keys["key18"]["value"]
+        self.cell_8 = self.keys["key19"]["value"]
+        self.cell_9 = self.keys["key20"]["value"]
 
         self.weapon_slot = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", self.cell_1, self.cell_2, self.cell_3, self.cell_4, self.cell_5, self.cell_6, self.cell_7, self.cell_8, self.cell_9]  #
         self.started = False
@@ -96,7 +97,7 @@ class DestroyerPickAxe(BaseScript):
             print(f"Кирка клавиши: {self.actually_weapon}                    Пауза: F7        Закрыть: F9")
             print(f"Осталось ударов в цикле: {self.attacks_count - count}")
             print(f"Осталось ударов всего: {(self.attacks_count * 8) - self.attack_actually_count_all}")
-            print(f"Предположительная прочность кирки: {round((1866*0.14 - self.attack_actually_count_all*0.14)*100)/100}")
+            print(f"Предположительная прочность кирки: {round((self.durability - self.attack_actually_count_all*self.durability_per_attack)*100)/100}")
             print()
 
     def attack_and_antiafk(self):

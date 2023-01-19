@@ -28,6 +28,13 @@ def loadKeys():
     return json.loads(keys_data)
 
 
+def loadKeysGui():
+    with open("../data/keys.json", "r") as file:
+        keys_data = file.read()
+
+    return json.loads(keys_data)
+
+
 dct = {"domination": {
                         "activate_key": "f4",
                         "key1": {"name": "", "value": ""},
@@ -107,6 +114,15 @@ dct = {"domination": {
                         "key19": {"name": "8 доп. ячейка", "value": "j"},  #
                         "key20": {"name": "9 доп. ячейка", "value": "m"},  #
                     },
+       "fluxing": {
+                        "activate_key": "f1",
+                        "key1": {"name": "", "value": ""},
+                        "key2": {"name": "", "value": ""},
+                        "key3": {"name": "", "value": ""},
+                        "key4": {"name": "", "value": ""},
+                        "key5": {"name": "", "value": ""},
+                        "key6": {"name": "", "value": ""},
+                    }
        }
 
 

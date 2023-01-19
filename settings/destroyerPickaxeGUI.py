@@ -75,7 +75,7 @@ def do():
     exit(0)
 
 
-data = tools.jsonOper.loadKeys()
+data = tools.jsonOper.loadKeysGui()
 settings = data["destroyerPickaxe"]
 
 window = Tk()

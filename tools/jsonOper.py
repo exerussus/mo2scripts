@@ -29,7 +29,7 @@ def loadKeys():
 
 
 def loadKeysGui():
-    with open("../data/keys.json", "r") as file:
+    with open("data/keys.json", "r") as file:
         keys_data = file.read()
 
     return json.loads(keys_data)
@@ -64,12 +64,14 @@ dct = {"domination": {
                     },
        "attacker": {
                         "activate_key": "f3",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
+                        "key1": {"name": "Удар сверху", "value": "q"},
+                        "key2": {"name": "Удар справа", "value": "g"},
+                        "key3": {"name": "Удар слева", "value": "h"},
+                        "key4": {"name": "Удар снизу", "value": "f"},
+                        "key5": {"name": "Мод", "value": "1"},
+                        "key6": {"name": "Ожидание между ударами", "value": "0.6"},
+                        "key7": {"name": "Время зарядки удара", "value": "0.1"},
+
                     },
        "spacer": {
                         "activate_key": "f2",

@@ -17,9 +17,9 @@ class MortalScripts(BaseScript):
 
         # Подключенные скрипты
         self.scripts_pack = {
-            # Domination(),
+            Domination(),
             AttackSpam(),
-            # Attacker(),
+            Attacker(),
             # Spacer(),
             # MentalTraining(),
             DestroyerPickAxe(),

@@ -8,16 +8,30 @@ class Attacker(BaseScript):
     def __init__(self):
         super().__init__()
         self.name = "attacker"
-        self.keyActivate = self.keys[self.name]
-        # self.move_keys = ["q", "{alt}", "v", "k"]
+        self.keys = self.keys_data[self.name]  # загрузка настройки всех ключей данного скрипта
+        self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
+        overhead = self.keys["key1"]["value"]
+        right = self.keys["key2"]["value"]
+        left = self.keys["key3"]["value"]
+        down = self.keys["key4"]["value"]
+        self.mode = self.keys["key5"]["value"]
+        self.timing = float(self.keys["key6"]["value"])
+        self.charging = float(self.keys["key7"]["value"])
+        self.move_keys = []
+        match self.mode:
+            case '1':
+                self.move_keys = [overhead, down, left]
+            case '2':
+                self.move_keys = [overhead, down, right]
+            case '3':
+                self.move_keys = [down]
+            case '4':
+                self.move_keys = [overhead, down]
 
     def custom(self):
-        # with pyautogui.hold("left"):
-        #     self.press(random.choice(self.move_keys))
-        #     self.wait(0.3)
-        with pyautogui.hold("q"):
-            self.wait(0.25)  # 0.28
-            print()
+        self._debug(f" mode = {self.mode}")
+        self.hold_and_release_wait(random.choice(self.move_keys), self.charging)
+        self.wait(self.timing)
 
 
 def run():

@@ -13,7 +13,7 @@ class ClassName(BaseScript):  # Название класса (должен от
         self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
         # обязательно скопировать ключ-значение "base", и переименовать согласно значению в self.name
         """ Полезное, но имеющее значение по дефолту, удалить при ненадобности """
-
+        self.game = "Mortal Online 2  "
         self.loop = True  # True активирует бесконечный цикл метода custom()
         self.debug = True  # Логи на стандартные функции
 

@@ -27,6 +27,8 @@ class Attacker(BaseScript):
                 self.move_keys = [down]
             case '4':
                 self.move_keys = [overhead, down]
+            case '5':
+                self.move_keys = [overhead, down, right, left]
 
     def custom(self):
         self._debug(f" mode = {self.mode}")

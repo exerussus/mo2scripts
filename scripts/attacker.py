@@ -39,11 +39,12 @@ class Attacker(BaseScript):
 
     def attacks(self):
         attack = random.choice(self.move_keys)
-        if attack == self.side_attack:
-            attack = random.choice(self.side_attack)
 
         if attack == self.down:
             attack = random.choice(self.move_keys)
+
+        if attack == self.side_attack:
+            attack = random.choice(self.side_attack)
 
         self.hold_and_release_wait(attack, self.charging)
         self.wait(self.timing)
@@ -52,11 +53,12 @@ class Attacker(BaseScript):
         rnd = random.choice([1, 2, 3])
         if rnd != 1:
             attack = random.choice(self.move_keys)
-            if attack == self.side_attack:
-                attack = random.choice(self.side_attack)
 
             if attack == self.down:
                 attack = random.choice(self.move_keys)
+
+            if attack == self.side_attack:
+                attack = random.choice(self.side_attack)
 
             self.hold_and_release_wait(attack, self.charging)
             self.wait(self.timing)

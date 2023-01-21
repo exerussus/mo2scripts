@@ -16,7 +16,6 @@ class DestroyerPickAxe(BaseScript):
         self.attacks_count = int(round(self.durability / self.durability_per_attack / 4))  # 1866  933  467  234
         self.jump_key = self.keys["key3"]["value"]
 
-
         self.attack_actually_count_all = 0
         self.actually_weapon = ""
 

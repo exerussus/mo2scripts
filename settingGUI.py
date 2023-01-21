@@ -1,16 +1,15 @@
-from tkinter import Tk, Label, Entry, Button
-from main import MortalScripts
+from tkinter import Tk, Label, Button
 import tools.jsonOper
 from settings import attackerGUI, destroyerPickaxeGUI
-#
-#
 
 
 def destroyer_pickaxe_GUI():
     destroyerPickaxeGUI.main()
 
+
 def do():
     exit(0)
+
 
 def attacker_GUI():
     attackerGUI.main()

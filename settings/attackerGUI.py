@@ -1,5 +1,4 @@
 from tkinter import Tk, Label, Entry, Button
-from main import MortalScripts
 import tools.jsonOper
 #
 #
@@ -24,6 +23,10 @@ def main():
             settings["key6"]["value"] = timing.get()
         if charging.get() != "":
             settings["key7"]["value"] = charging.get()
+        if feint.get() != "":
+            settings["key8"]["value"] = feint.get()
+        if feint_bool.get() != "":
+            settings["key9"]["value"] = feint_bool.get()
 
         data["attacker"] = settings
         tools.jsonOper.saveKeys(data)
@@ -88,6 +91,12 @@ def main():
     charging = Entry(window1, width=10)
     charging.grid(column=2, row=7)
 
+    feint = Entry(window1, width=10)
+    feint.grid(column=2, row=8)
+
+    feint_bool = Entry(window1, width=10)
+    feint_bool.grid(column=2, row=9)
+
     lbl_pass = Label(window1, text="               ")
     lbl_pass.grid(column=5)
     btn = Button(window1, text="Принять настройки", command=do)
@@ -100,13 +109,14 @@ def main():
                      "3:  только нижние атаки\n"
                      "4:  нижние и верхние\n"
                      "5:  все стороны")
-    btn.grid(column=2, row=8)
+    btn.grid(column=2, row=10)
 
     window1.mainloop()
 
 
 def name():
     return "attacker"
+
 
 if __name__ == "__main__":
     main()

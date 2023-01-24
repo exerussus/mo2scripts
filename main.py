@@ -2,7 +2,7 @@
 from scripts.destroyerPickaxe import DestroyerPickAxe
 from scripts.base import BaseScript
 from scripts.domination import Domination
-from scripts.attackspam import AttackSpam
+from scripts.spam import Spam
 from scripts.attacker import Attacker
 from scripts.feintRightAttackOverhead import FeintRightAttackOverhead
 from scripts.spacer import Spacer
@@ -17,7 +17,7 @@ class MortalScripts(BaseScript):
         # Подключенные скрипты
         self.scripts_pack = {
             Domination(),
-            AttackSpam(),
+            Spam(),
             Attacker(),
             # Spacer(),
             # MentalTraining(),

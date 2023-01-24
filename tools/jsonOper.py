@@ -53,14 +53,19 @@ dct = {"domination": {
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
                     },
-       "attackspam": {
+       "spam": {
                         "activate_key": "f5",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
+                        "key1": {"name": "1. Кнопка нажатия", "value": ""},
+                        "key2": {"name": "1. Пауза после нажатия", "value": ""},
+
+                        "key3": {"name": "2. Кнопка зажатия", "value": ""},
+                        "key4": {"name": "2. Время зажатия", "value": ""},
+
+                        "key5": {"name": "3. Кнопка нажатия", "value": ""},
+                        "key6": {"name": "3. Пауза после нажатия", "value": ""},
+
+                        "key7": {"name": "4. Кнопка зажатия", "value": ""},
+                        "key8": {"name": "4. Время зажатия", "value": ""},
                     },
        "attacker": {
                         "activate_key": "f3",

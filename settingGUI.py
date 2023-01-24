@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Button
 import tools.jsonOper
-from settings import attackerGUI, destroyerPickaxeGUI
+from settings import attackerGUI, destroyerPickaxeGUI, spamGUI
 
 
 def destroyer_pickaxe_GUI():
@@ -10,6 +10,9 @@ def destroyer_pickaxe_GUI():
 def do():
     exit(0)
 
+
+def spam_GUI():
+    spamGUI.main()
 
 def attacker_GUI():
     attackerGUI.main()
@@ -37,6 +40,12 @@ def main():
 
     lbl_key = Button(window, text=f'Настройка', command=destroyer_pickaxe_GUI)
     lbl_key.grid(column=1, row=1)
+
+    lbl_name = Label(window, text=f'{spamGUI.name()}')
+    lbl_name.grid(column=0, row=2)
+
+    lbl_key = Button(window, text=f'Настройка', command=spam_GUI)
+    lbl_key.grid(column=1, row=2)
 
     lbl_pass = Label(text="               ")
     lbl_pass.grid(column=5)

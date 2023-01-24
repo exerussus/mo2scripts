@@ -70,7 +70,7 @@ def main():
     settings = data["destroyerPickaxe"]
 
     window1 = Tk()
-    window1.title("Mortal Online 2 Scripts")
+    window1.title("Mortal Online 2 Scripts destroyerPickaxe settings")
     window1.geometry('400x600')
 
     count_row = 0

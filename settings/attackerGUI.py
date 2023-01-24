@@ -45,7 +45,7 @@ def main():
     settings = data["attacker"]
 
     window1 = Tk()
-    window1.title("Mortal Online 2 Scripts")
+    window1.title("Mortal Online 2 Scripts attackerGUI settings")
     window1.geometry('600x400')
 
     count_row = 0

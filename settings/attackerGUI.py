@@ -27,6 +27,8 @@ def main():
             settings["key8"]["value"] = feint.get()
         if feint_bool.get() != "":
             settings["key9"]["value"] = feint_bool.get()
+        if rotation_bool.get() != "":
+            settings["key10"]["value"] = rotation_bool.get()
 
         data["attacker"] = settings
         tools.jsonOper.saveKeys(data)
@@ -97,6 +99,9 @@ def main():
     feint_bool = Entry(window1, width=10)
     feint_bool.grid(column=2, row=9)
 
+    rotation_bool = Entry(window1, width=10)
+    rotation_bool.grid(column=2, row=10)
+
     lbl_pass = Label(window1, text="               ")
     lbl_pass.grid(column=5)
     btn = Button(window1, text="Принять настройки", command=do)
@@ -109,11 +114,11 @@ def main():
                      "3:  только нижние атаки\n"
                      "4:  нижние и верхние\n"
                      "5:  все стороны\n\n")
-    btn.grid(column=2, row=10)
+    btn.grid(column=2, row=11)
     btn = Label(window1, text="Финт: \n"
                               "1: с финтами\n"
                               "2: без финтов\n")
-    btn.grid(column=1, row=10)
+    btn.grid(column=1, row=11)
 
     window1.mainloop()
 

@@ -9,7 +9,6 @@ from scripts.spacer import Spacer
 from scripts.mentalTraining import MentalTraining
 
 
-
 class MortalScripts(BaseScript):
 
     def __init__(self):

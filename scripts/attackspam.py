@@ -11,7 +11,12 @@ class AttackSpam(BaseScript):
 
     def custom(self):
         self.press('q')
-        self.wait(0.3)
+        self.wait(0.2)
+        # self.wait(1)
+        # self.hold_and_release_wait('v', 7)
+
+
+
 
 
 def run():

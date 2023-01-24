@@ -73,6 +73,7 @@ dct = {"domination": {
                         "key7": {"name": "Время зарядки удара", "value": "0.1"},
                         "key8": {"name": "Финт", "value": "e"},
                         "key9": {"name": "Включить финты", "value": "0"},
+                        "key10": {"name": "Включить повороты", "value": "0"},
 
                     },
        "spacer": {

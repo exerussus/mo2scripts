@@ -1,3 +1,4 @@
 pyautoit
 pyautogui
 keyboard
+pywin32

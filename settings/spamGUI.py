@@ -17,14 +17,21 @@ def main():
             settings["key3"]["value"] = hold_2.get()
         if holding_time_2.get() != "":
             settings["key4"]["value"] = holding_time_2.get()
+
+        if cycle12.get() != "":
+            settings["key5"]["value"] = cycle12.get()
+
         if press_3.get() != "":
-            settings["key5"]["value"] = press_3.get()
+            settings["key6"]["value"] = press_3.get()
         if wait_3.get() != "":
-            settings["key6"]["value"] = wait_3.get()
+            settings["key7"]["value"] = wait_3.get()
         if hold_4.get() != "":
-            settings["key7"]["value"] = hold_4.get()
+            settings["key8"]["value"] = hold_4.get()
         if holding_time_4.get() != "":
-            settings["key8"]["value"] = holding_time_4.get()
+            settings["key9"]["value"] = holding_time_4.get()
+
+        if cycle34.get() != "":
+            settings["key10"]["value"] = cycle34.get()
 
         data["spam"] = settings
         tools.jsonOper.saveKeys(data)
@@ -42,7 +49,7 @@ def main():
 
     window1 = Tk()
     window1.title("Mortal Online 2 Scripts Spam Settings")
-    window1.geometry('600x400')
+    window1.geometry('650x400')
 
     count_row = 0
     for i in settings:
@@ -80,17 +87,23 @@ def main():
     holding_time_2 = Entry(window1, width=10)
     holding_time_2.grid(column=2, row=4)
 
+    cycle12 = Entry(window1, width=10)
+    cycle12.grid(column=2, row=5)
+
     press_3 = Entry(window1, width=10)
-    press_3.grid(column=2, row=5)
+    press_3.grid(column=2, row=6)
 
     wait_3 = Entry(window1, width=10)
-    wait_3.grid(column=2, row=6)
+    wait_3.grid(column=2, row=7)
 
     hold_4 = Entry(window1, width=10)
-    hold_4.grid(column=2, row=7)
+    hold_4.grid(column=2, row=8)
 
     holding_time_4 = Entry(window1, width=10)
-    holding_time_4.grid(column=2, row=8)
+    holding_time_4.grid(column=2, row=9)
+
+    cycle34 = Entry(window1, width=10)
+    cycle34.grid(column=2, row=10)
 
     lbl_pass = Label(window1, text="               ")
     lbl_pass.grid(column=5)

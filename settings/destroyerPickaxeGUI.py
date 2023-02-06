@@ -5,7 +5,7 @@ import tools.jsonOper
 #
 
 
-def main():
+def main(main_mod=False):
 
     def setting():
 
@@ -55,18 +55,18 @@ def main():
             settings["key20"]["value"] = cell_9.get()
 
         data["destroyerPickaxe"] = settings
-        tools.jsonOper.saveKeys(data)
+        tools.jsonOper.saveKeys(data) if not main_mod else tools.jsonOper.saveKeysMainMod(data)
 
 
     def reset():
-        tools.jsonOper.reset()
+        tools.jsonOper.reset_all()
         exit(0)
 
     def do():
         setting()
         exit(0)
 
-    data = tools.jsonOper.loadKeysGui()
+    data = tools.jsonOper.loadKeysGui() if not main_mod else tools.jsonOper.loadKeysGuiMainMod()
     settings = data["destroyerPickaxe"]
 
     window1 = Tk()
@@ -172,6 +172,6 @@ def name():
 
 
 if __name__ == "__main__":
-    main()
+    main(main_mod=True)
 
 

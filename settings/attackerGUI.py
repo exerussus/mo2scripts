@@ -2,51 +2,43 @@ from tkinter import Tk, Label, Entry, Button
 import tools.jsonOper
 #
 #
+NAME = "attacker"
 
-def main():
-
+def main(main_mod=False):
     def setting():
+        count = 0
+        for i in grid_list:
+            if count == 0:
+                if i.get() != "":
+                    settings["activate_key"] = i.get()
 
-        if activate.get() != "":
-            settings["activate_key"] = activate.get()
-        if overhead.get() != "":
-            settings["key1"]["value"] = overhead.get()
-        if right.get() != "":
-            settings["key2"]["value"] = right.get()
-        if left.get() != "":
-            settings["key3"]["value"] = left.get()
-        if down.get() != "":
-            settings["key4"]["value"] = down.get()
-        if mode.get() != "":
-            settings["key5"]["value"] = mode.get()
-        if timing.get() != "":
-            settings["key6"]["value"] = timing.get()
-        if charging.get() != "":
-            settings["key7"]["value"] = charging.get()
-        if feint.get() != "":
-            settings["key8"]["value"] = feint.get()
-        if feint_bool.get() != "":
-            settings["key9"]["value"] = feint_bool.get()
-        if rotation_bool.get() != "":
-            settings["key10"]["value"] = rotation_bool.get()
+            if count != 0:
+                if i.get() != "":
+                    settings[f"key{count}"]["value"] = i.get()
 
-        data["attacker"] = settings
-        tools.jsonOper.saveKeys(data)
+            count += 1
+
+        data[NAME] = settings
+        tools.jsonOper.saveKeys(data) if not main_mod else tools.jsonOper.saveKeysMainMod(data)
 
     def reset():
-        tools.jsonOper.reset()
+        standart_data = tools.jsonOper.reset()  # tools.jsonOper.reset_all()
+        custom_path = standart_data[NAME]
+        data[NAME] = custom_path
+        tools.jsonOper.saveKeys(data) if __name__ != "__main__" else tools.jsonOper.onlySaveKeys(data)
         exit(0)
+
 
     def do():
         setting()
         exit(0)
 
-    data = tools.jsonOper.loadKeysGui()
-    settings = data["attacker"]
+    data = tools.jsonOper.loadKeysGui() if not main_mod else tools.jsonOper.loadKeysGuiMainMod()
+    settings = data[NAME]
 
     window1 = Tk()
-    window1.title("Mortal Online 2 Scripts attackerGUI settings")
-    window1.geometry('600x400')
+    window1.title(f"Mortal Online 2 Scripts {NAME} Settings")
+    window1.geometry('650x400')
 
     count_row = 0
     for i in settings:
@@ -56,51 +48,38 @@ def main():
                 lbl_name = Label(window1, text="Активация")
                 lbl_name.grid(column=0, row=count_row)
 
-                lbl_key = Label(window1, text=f"|    {settings[i]}")
+                lbl_key = Label(window1, text=f"    {settings[i]}")
                 lbl_key.grid(column=1, row=count_row)
                 count_row += 1
+
 
             else:
 
                 lbl_name = Label(window1, text=f'{settings[i]["name"]}  ')
                 lbl_name.grid(column=0, row=count_row)
 
-                lbl_key = Label(window1, text=f'|    {settings[i]["value"]}')
+                lbl_key = Label(window1, text=f'    {settings[i]["value"]}')
                 lbl_key.grid(column=1, row=count_row)
                 count_row += 1
 
-    activate = Entry(window1, width=10)
-    activate.grid(column=2, row=0)
+    grid_list = [
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10),
+        Entry(window1, width=10)
+    ]
 
-    overhead = Entry(window1, width=10)
-    overhead.grid(column=2, row=1)
-
-    right = Entry(window1, width=10)
-    right.grid(column=2, row=2)
-
-    left = Entry(window1, width=10)
-    left.grid(column=2, row=3)
-
-    down = Entry(window1, width=10)
-    down.grid(column=2, row=4)
-
-    mode = Entry(window1, width=10)
-    mode.grid(column=2, row=5)
-
-    timing = Entry(window1, width=10)
-    timing.grid(column=2, row=6)
-
-    charging = Entry(window1, width=10)
-    charging.grid(column=2, row=7)
-
-    feint = Entry(window1, width=10)
-    feint.grid(column=2, row=8)
-
-    feint_bool = Entry(window1, width=10)
-    feint_bool.grid(column=2, row=9)
-
-    rotation_bool = Entry(window1, width=10)
-    rotation_bool.grid(column=2, row=10)
+    row = 0
+    for i in grid_list:
+        i.grid(column=2, row=row)
+        row += 1
 
     lbl_pass = Label(window1, text="               ")
     lbl_pass.grid(column=5)
@@ -124,11 +103,11 @@ def main():
 
 
 def name():
-    return "attacker"
+    return NAME
 
 
 if __name__ == "__main__":
-    main()
+    main(main_mod=True)
 
 
 

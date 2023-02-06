@@ -20,7 +20,7 @@ def attacker_GUI():
 
 def main():
     def reset():
-        tools.jsonOper.reset()
+        tools.jsonOper.reset_all()
         exit(0)
 
     window = Tk()

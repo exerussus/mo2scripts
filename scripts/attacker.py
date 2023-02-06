@@ -30,7 +30,6 @@ class Attacker(BaseScript):
         self.side_attack = []
         self.move_keys = []
         self.actually_attack = None
-        self.debug_log(f"self.mode = {self.mode}")
         match self.mode:
             case '1':
                 self.side_attack = [self.left]

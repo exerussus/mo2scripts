@@ -1,9 +1,12 @@
+import keyboard
+
 
 from scripts.destroyerPickaxe import DestroyerPickAxe
 from scripts.base import BaseScript
 from scripts.domination import Domination
 from scripts.spam import Spam
 from scripts.attacker import Attacker
+from scripts.easyFlux import EasyFlux
 from scripts.feintRightAttackOverhead import FeintRightAttackOverhead
 from scripts.spacer import Spacer
 from scripts.mentalTraining import MentalTraining
@@ -19,13 +22,16 @@ class MortalScripts(BaseScript):
             Domination(),
             Spam(),
             Attacker(),
-            # Spacer(),
+            EasyFlux(),
             # MentalTraining(),
             DestroyerPickAxe(),
         }
 
     def run(self):
+
         while not self.exitKey:
+
+
             for script in self.scripts_pack:
                 script.run()
             self.checkExitKey()

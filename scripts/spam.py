@@ -38,6 +38,10 @@ class Spam(BaseScript):
 
             if self.hold_4 != "":
                 self.hold_and_release_wait(self.hold_4, float(self.holding_time_4))
+        # self.hold_and_release_wait('w', 1)
+        # self.hold_and_release_wait('space', 1)
+        # self.hold_and_release_wait('s', 1)
+        # self.hold_and_release_wait('space', 1)
 
 def run():
     attack_spam = Spam()

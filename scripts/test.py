@@ -19,13 +19,46 @@ class ClassName(BaseScript):  # Название класса (должен от
 
         """ Кастомные атрибуты писать здесь """
 
+    def water_pain(self, count):
+        for _ in range(count):
+            self.hold_and_release_wait('w', 0.3)
+            self.wait(0.2)
+            self.hold_and_release_wait('space', 0.2)
+            self.wait(0.3)
+            self.hold_and_release_wait('s', 0.3)
+            self.wait(0.2)
+
+            self.press("c")
+            self.wait(1.7)
+            self.press('f')
+            self.wait(0.5)
+
+    def healing(self, count):
+        for _ in range(count):
+            self.press("4")
+            self.wait(2)
+            self.press('f')
+            self.wait(0.5)
+
+    def resting(self, sec):
+        self.press('0')
+        self.wait(sec)
+
     def custom(self):  # Главный метод, весь код писать сюда
-        pass
+        self.hold('left')
+        self.wait(2)
+        # self.water_pain(35)
+        # self.healing(2)
+        # self.water_pain(15)
+        # self.resting(30)
+        # self.healing(2)
+
+
 
 
 def run():
     script_class = ClassName()  # инициализация класса (сменить название на актуальное)
-    script_class.custom()
+    script_class.run()
 
 
 if __name__ == "__main__":

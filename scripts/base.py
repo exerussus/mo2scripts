@@ -2,13 +2,16 @@ import time
 
 import keyboard
 import autoit
+import pyautogui
+
 import tools.jsonOper
 
 
 class BaseScript:
 
     def __init__(self):
-        self.keys_data = tools.jsonOper.loadKeys()
+
+        self.keys_data = tools.jsonOper.loadKeys() # if __name__ == "__main__" else tools.jsonOper.onlyLoadKeys()
         self.name = "base"
         self.keys = self.keys_data[self.name]
         self.keyActivate = self.keys["activate_key"]
@@ -106,16 +109,24 @@ class BaseScript:
         if not self.isStop and not self.exitKey:
             autoit.control_send(f"[TITLE:{self.game}]", "", "{" + f"{key} down" + "}")
 
+    def hold_and_release_sleep_pag(self, key: str, time_count: float):
+        with pyautogui.hold(key):
+            time.sleep(time_count)
+
+    def hold_and_release_wait_pag(self, key: str, time_count: float):
+        with pyautogui.hold(key):
+            self.wait(time_count)
+
     def release(self, key):
         self.debug_log(f"released {key} key...")
         if not self.isStop and not self.exitKey:
             autoit.control_send(f"[TITLE:{self.game}]", "", "{" + f"{key} up" + "}")
 
     def run(self):
-        if keyboard.is_pressed(self.keyActivate):
-            self.debug_log(f"{self.name} is activated")
+        if keyboard.is_pressed(self.keyActivate): # if __name__ == "__main__" else True:
             self.startFunction()
             if self.loop:
+                self.debug_log(f"{self.name} is activated with loop")
                 self.customLoop()
                 self.debug_log(f"{self.name} is deactivated")
             else:

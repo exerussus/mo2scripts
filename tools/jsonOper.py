@@ -9,10 +9,20 @@ def onlySaveKeys(keys):
 
 
 def reset():
+    return dct
+
+
+def reset_all():
     keys_data = json.dumps(dct)
     with open("data/keys.json", "w") as file:
         file.write(keys_data)
 
+
+def saveKeysMainMod(keys):
+
+    keys_data = json.dumps(keys)
+    with open("../data/keys.json", "w") as file:
+        file.write(keys_data)
 
 def saveKeys(keys):
 
@@ -21,8 +31,21 @@ def saveKeys(keys):
         file.write(keys_data)
 
 
+def onlyLoadKeys():
+    with open("../data/keys.json", "r") as file:
+        keys_data = file.read()
+
+    return json.loads(keys_data)
+
 def loadKeys():
     with open("data/keys.json", "r") as file:
+        keys_data = file.read()
+
+    return json.loads(keys_data)
+
+
+def loadKeysGuiMainMod():
+    with open("../data/keys.json", "r") as file:
         keys_data = file.read()
 
     return json.loads(keys_data)
@@ -36,7 +59,7 @@ def loadKeysGui():
 
 
 dct = {"domination": {
-                        "activate_key": "f4",
+                        "activate_key": "f2",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},
@@ -85,8 +108,8 @@ dct = {"domination": {
                         "key10": {"name": "Включить повороты", "value": "0"},
 
                     },
-       "spacer": {
-                        "activate_key": "f2",
+       "easyFlux": {
+                        "activate_key": "f4",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},
@@ -130,6 +153,15 @@ dct = {"domination": {
                     },
        "fluxing": {
                         "activate_key": "f1",
+                        "key1": {"name": "", "value": ""},
+                        "key2": {"name": "", "value": ""},
+                        "key3": {"name": "", "value": ""},
+                        "key4": {"name": "", "value": ""},
+                        "key5": {"name": "", "value": ""},
+                        "key6": {"name": "", "value": ""},
+                    },
+       "intBoost": {
+                        "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},

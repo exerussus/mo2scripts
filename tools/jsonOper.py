@@ -8,8 +8,8 @@ def onlySaveKeys(keys):
         file.write(keys_data)
 
 
-def reset():
-    return dct
+def standart_keys(keys):
+    return dct[keys]
 
 
 def reset_all():
@@ -58,7 +58,7 @@ def loadKeysGui():
     return json.loads(keys_data)
 
 
-dct = {"domination": {
+dct = {"domination": [{
                         "activate_key": "f2",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
@@ -67,7 +67,10 @@ dct = {"domination": {
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
                     },
-       "base": {
+                    "Описание"
+                    ],
+
+       "base": [{
                         "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
@@ -76,7 +79,10 @@ dct = {"domination": {
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
                     },
-       "spam": {
+                    "Описание"
+                    ],
+
+       "spam": [{
                         "activate_key": "f5",
                         "key1": {"name": "1. Кнопка нажатия", "value": ""},
                         "key2": {"name": "1. Пауза после нажатия", "value": ""},
@@ -94,8 +100,11 @@ dct = {"domination": {
 
                         "key10": {"name": "3-4. Количество повторений", "value": ""},
                     },
-       "attacker": {
-                        "activate_key": "f3",
+                    "Описание"
+                    ],
+
+       "attacker": [{
+                        "activate_key": "",
                         "key1": {"name": "Удар сверху", "value": "q"},
                         "key2": {"name": "Удар справа", "value": "g"},
                         "key3": {"name": "Удар слева", "value": "h"},
@@ -108,8 +117,11 @@ dct = {"domination": {
                         "key10": {"name": "Включить повороты", "value": "0"},
 
                     },
-       "easyFlux": {
-                        "activate_key": "f4",
+                    "Описание"
+                    ],
+
+       "easyFlux": [{
+                        "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},
@@ -117,8 +129,11 @@ dct = {"domination": {
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
                     },
-       "mentalTraining": {
-                        "activate_key": "f1",
+                    "Описание"
+                    ],
+
+       "mentalTraining": [{
+                        "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},
@@ -126,7 +141,10 @@ dct = {"domination": {
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
                     },
-       "destroyerPickaxe": {
+                    "Описание"
+                    ],
+
+       "destroyerPickaxe": [{
                         "activate_key": "f6",
                         "key1": {"name": "Атака сверху", "value": "q"},  # атака сверху
                         "key2": {"name": "Вытащить оружие", "value": "x"},  # вытащить оружие
@@ -151,16 +169,10 @@ dct = {"domination": {
                         "key19": {"name": "8 доп. ячейка", "value": "j"},  #
                         "key20": {"name": "9 доп. ячейка", "value": "m"},  #
                     },
-       "fluxing": {
-                        "activate_key": "f1",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
-                    },
-       "intBoost": {
+                    "Описание"
+                    ],
+
+       "fluxing": [{
                         "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
@@ -168,7 +180,22 @@ dct = {"domination": {
                         "key4": {"name": "", "value": ""},
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
-                    }
+                    },
+                    "Описание"
+                    ],
+
+       "intBoost": [{
+                        "activate_key": "",
+                        "key1": {"name": "", "value": ""},
+                        "key2": {"name": "", "value": ""},
+                        "key3": {"name": "", "value": ""},
+                        "key4": {"name": "", "value": ""},
+                        "key5": {"name": "", "value": ""},
+                        "key6": {"name": "", "value": ""},
+                    },
+                    "Описание"
+                    ],
+
        }
 
 

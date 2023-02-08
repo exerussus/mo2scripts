@@ -22,7 +22,7 @@ def main(main_mod=False):
         tools.jsonOper.saveKeys(data) if not main_mod else tools.jsonOper.saveKeysMainMod(data)
 
     def reset():
-        standart_data = tools.jsonOper.reset()  # tools.jsonOper.reset_all()
+        standart_data = tools.jsonOper.standart_keys()  # tools.jsonOper.reset_all()
         custom_path = standart_data[NAME]
         data[NAME] = custom_path
         tools.jsonOper.saveKeys(data) if __name__ != "__main__" else tools.jsonOper.onlySaveKeys(data)

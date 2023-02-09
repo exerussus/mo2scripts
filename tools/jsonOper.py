@@ -1,6 +1,25 @@
 import json
 
 
+attacker_description = "Моды: \n" \
+                     "1:  3 удара, боковой слева\n" \
+                     "2:  3 удара, боковой справа\n" \
+                     "3:  только нижние атаки\n" \
+                     "4:  нижние и верхние\n" \
+                     "5:  все стороны\n\n" \
+                      "Финт: \n" \
+                      "1: с финтами\n" \
+                      "2: без финтов\n"
+
+spam_description = "Если оставить поля пустыми, то они\n" \
+                  "будут пропущены. Назначайте кнопки\n" \
+                  "на те функции, которые нужны, не забывая\n" \
+                  "указывать время."
+
+
+domination_description = "Если domination 1 - будет \n" \
+                         "зажимать ctrl, иначе 0"
+
 def onlySaveKeys(keys):
 
     keys_data = json.dumps(keys)
@@ -58,19 +77,8 @@ def loadKeysGui():
     return json.loads(keys_data)
 
 
-dct = {"domination": [{
-                        "activate_key": "f2",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
-                    },
-                    "Описание"
-                    ],
-
-       "base": [{
+dct = {
+    "base": [{
                         "activate_key": "",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
@@ -81,6 +89,17 @@ dct = {"domination": [{
                     },
                     "Описание"
                     ],
+
+    "domination": [{
+                        "activate_key": "f2",
+                        "key1": {"name": "action_key", "value": "v"},
+                        "key2": {"name": "holding_time", "value": "5"},
+                        "key3": {"name": "domination", "value": "1"}
+                    },
+                    domination_description
+                    ],
+
+
 
        "spam": [{
                         "activate_key": "f5",
@@ -100,7 +119,7 @@ dct = {"domination": [{
 
                         "key10": {"name": "3-4. Количество повторений", "value": ""},
                     },
-                    "Описание"
+                    spam_description
                     ],
 
        "attacker": [{
@@ -117,7 +136,7 @@ dct = {"domination": [{
                         "key10": {"name": "Включить повороты", "value": "0"},
 
                     },
-                    "Описание"
+                    attacker_description
                     ],
 
        "easyFlux": [{

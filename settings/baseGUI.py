@@ -15,12 +15,9 @@ class GUI:
             self.window = Tk()
             self.window.title(f"Mortal Online 2 Scripts {self.NAME} Settings")
             self.GRID_COUNT = len(self.settings)
-            print(self.GRID_COUNT)
             self.window.geometry(f'650x{150+self.GRID_COUNT*30 if 150+self.GRID_COUNT*30 < 750 else 750}')
-
             self.grid_list = [Entry(self.window, width=10) for _ in range(self.GRID_COUNT)]
-            print(self.settings)
-            print(self.data)
+
 
     def setting(self):
         count = 0
@@ -37,7 +34,6 @@ class GUI:
 
         self.data[self.NAME][0] = self.settings
         tools.jsonOper.saveKeysMainMod(self.data) if self.main_mode else tools.jsonOper.saveKeys(self.data)
-        print(self.data)
         exit(0)
 
     def reset(self):

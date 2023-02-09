@@ -8,18 +8,35 @@ class Domination(BaseScript):
         self.name = "domination"
         self.keys = self.keys_data[self.name]
         self.keyActivate = self.keys["activate_key"]
+        self.action_key = self.keys["key1"]["value"]
+        self.holding_time = float(self.keys["key2"]["value"])
+        self.domination = True if self.keys["key3"]["value"] == "1" else False
+
+    def hold_or_release(self, mode: str):
+        """ mode - hold or release """
+        if self.domination and mode == "hold":
+            self.hold("lctrl")
+            self.wait(0.1)
+            self.hold("lctrl")
+            self.wait(0.1)
+        if self.domination and mode == "release":
+            self.release("lctrl")
+            self.wait(0.1)
+            self.release("lctrl")
+            self.wait(0.1)
+
+    def action_pressing(self):
+        self.hold(self.action_key)
+        self.wait(self.holding_time)
+        self.wait(0.1)
+        self.release(self.action_key)
+        self.wait(0.2)
 
     def custom(self):
 
-        print("16 domination")
-        # self.press("{CTRLDOWN}")
-        self.wait(0.1)
-        self.hold("v")
-        self.wait(5)
-        # self.press("{CTRLUP}")
-        self.wait(0.1)
-        self.release("r")
-        self.wait(0.2)
+        self.hold_or_release("hold")
+        self.action_pressing()
+        self.hold_or_release("release")
 
 
 def run():

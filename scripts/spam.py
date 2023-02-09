@@ -1,12 +1,12 @@
 from scripts.base import BaseScript
 
 
-class Spam(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "spam"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
 
         self.press_1 = self.keys["key1"]["value"]
@@ -44,7 +44,7 @@ class Spam(BaseScript):
         # self.hold_and_release_wait('space', 1)
 
 def run():
-    attack_spam = Spam()
+    attack_spam = Script()
     attack_spam.custom()
 
 

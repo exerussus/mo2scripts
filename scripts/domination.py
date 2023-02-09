@@ -1,12 +1,12 @@
 from scripts.base import BaseScript
 
 
-class Domination(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "domination"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.action_key = self.keys["key1"]["value"]
         self.holding_time = float(self.keys["key2"]["value"])
@@ -40,7 +40,7 @@ class Domination(BaseScript):
 
 
 def run():
-    script_class = Domination()
+    script_class = Script()
     script_class.custom()
 
 

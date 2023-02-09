@@ -13,12 +13,13 @@ class BaseScript:
 
         self.keys_data = tools.jsonOper.loadKeys() # if __name__ == "__main__" else tools.jsonOper.onlyLoadKeys()
         self.name = "base"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.game = "Mortal Online 2  "
         self.exitKey = False
         self.isStop = False
         self.loop = True
+        self.ready = True
         self.debug = True
 
     def debug_log(self, value: str, debug_show=True):
@@ -76,8 +77,8 @@ class BaseScript:
                 else:
                     function(args)
 
-    def wait(self, seconds):
-        if seconds != 0.01: self.debug_log(f"waiting {seconds} seconds...")
+    def wait(self, seconds, debug=True):
+        if debug: self.debug_log(f"waiting {seconds} seconds...")
         if not self.isStop and not self.exitKey:
             time_out = seconds
             timer = 0

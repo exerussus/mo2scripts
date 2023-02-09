@@ -6,17 +6,18 @@ import pyautogui
 from scripts.base import BaseScript
 
 
-class EasyFlux(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "easyFlux"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.holding_left = False
         self.timer = 0
         self.toggle = False
         self.first = False
+        self.ready = False
         pyautogui.FAILSAFE = False
 
     def custom(self):
@@ -76,7 +77,7 @@ class EasyFlux(BaseScript):
         #     self.press('k')
 
 def run():
-    attack_spam = EasyFlux()
+    attack_spam = Script()
     attack_spam.custom()
 
 

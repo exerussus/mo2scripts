@@ -6,12 +6,12 @@ import time
 from scripts.base import BaseScript
 
 
-class intBoost(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "intBoost"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.holding_left = False
         self.timer = 0
@@ -19,6 +19,7 @@ class intBoost(BaseScript):
         self.first = False
         self.loop = False
         pyautogui.FAILSAFE = False
+        self.ready = False
 
     def custom(self):
 
@@ -58,7 +59,7 @@ class intBoost(BaseScript):
 
 
 def run():
-    attack_spam = intBoost()
+    attack_spam = Script()
     attack_spam.custom()
 
 

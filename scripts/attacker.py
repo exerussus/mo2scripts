@@ -6,16 +6,15 @@ import time
 import win32con
 
 from scripts.base import BaseScript
-import pyautogui
 import win32, win32api, win32gui
 
-class Attacker(BaseScript):
 
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "attacker"
-        self.keys = self.keys_data[self.name]  # загрузка настройки всех ключей данного скрипта
+        self.keys = self.keys_data[self.name][0]  # загрузка настройки всех ключей данного скрипта
         self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
         self.overhead = self.keys["key1"]["value"]
         self.right = self.keys["key2"]["value"]
@@ -575,7 +574,7 @@ class Attacker(BaseScript):
 
 
 def run():
-    script_class = Attacker()
+    script_class = Script()
     script_class.custom()
 
 

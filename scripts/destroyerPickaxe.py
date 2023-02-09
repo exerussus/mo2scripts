@@ -1,15 +1,14 @@
 import random
 from scripts.base import BaseScript
-import autoit
 import time
 
 
-class DestroyerPickAxe(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "destroyerPickaxe"
-        self.keys = self.keys_data[self.name]
+        self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.durability = int(self.keys["key10"]["value"])
         self.durability_per_attack = float(self.keys["key11"]["value"])
@@ -134,7 +133,7 @@ class DestroyerPickAxe(BaseScript):
 
 
 def run():
-    script_class = DestroyerPickAxe()
+    script_class = Script()
     script_class.custom()
 
 

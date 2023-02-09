@@ -2,12 +2,14 @@ import random
 from scripts.base import BaseScript
 import pyautogui
 
-class MentalTraining(BaseScript):
+class Script(BaseScript):
 
     def __init__(self):
         super().__init__()
         self.name = "mentalTraining"
-        self.keyActivate = self.keys[self.name]
+        self.keys = self.keys_data[self.name][0]
+        self.keyActivate = self.keys["activate_key"]
+        self.ready = False
 
     def water_pushing(self):
 
@@ -36,7 +38,7 @@ class MentalTraining(BaseScript):
 
 
 def run():
-    script_class = MentalTraining()
+    script_class = Script()
     script_class.custom()
 
 

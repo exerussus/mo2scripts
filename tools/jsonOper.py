@@ -141,12 +141,9 @@ dct = {
 
        "easyFlux": [{
                         "activate_key": "",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
+                        "key1": {"name": "Изгнание", "value": ""},
+                        "key2": {"name": "Вызов спирита", "value": ""},
+                        "key3": {"name": "Кнопка атаки", "value": ""}
                     },
                     "Описание"
                     ],
@@ -211,6 +208,15 @@ dct = {
                         "key4": {"name": "", "value": ""},
                         "key5": {"name": "", "value": ""},
                         "key6": {"name": "", "value": ""},
+                    },
+                    "Описание"
+                    ],
+
+       "foliageHider": [{
+                        "activate_key": "f4",
+                        "key1": {"name": "Кнопка перезагрузки листвы (любая кроме f7 и f9)", "value": "f4"},
+                        "key2": {"name": "Ширина окна", "value": "1920"},
+                        "key3": {"name": "Высота окна", "value": "1080"},
                     },
                     "Описание"
                     ],

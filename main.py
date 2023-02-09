@@ -3,12 +3,11 @@ from scripts.base import BaseScript
 import os
 
 
-
 class MortalScripts(BaseScript):
 
     def __init__(self):
         super().__init__()
-        # Подключенные скрипты
+        # Подключение скриптов из папки scripts
         self.scripts_pack = []
         for filename in os.listdir("scripts"):
             if filename[-2:] == "py":

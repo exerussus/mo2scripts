@@ -123,7 +123,7 @@ dct = {
                     ],
 
        "attacker": [{
-                        "activate_key": "",
+                        "activate_key": "f3",
                         "key1": {"name": "Удар сверху", "value": "q"},
                         "key2": {"name": "Удар справа", "value": "g"},
                         "key3": {"name": "Удар слева", "value": "h"},

@@ -30,13 +30,14 @@ class Settings_GUI:
         lbl_pass.grid(column=5)
         btn = Button(self.window_gui, text="Закрыть", command=self.close)
         btn.grid(column=1, row=count+1)
+
         self.window_gui.mainloop()
 
     def close(self):
         exit(0)
 
     def call(self, name):
-        baseGUI.run(name)
+        baseGUI.run(name, self.window_gui)
 
 
 def main():

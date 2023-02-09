@@ -1,12 +1,14 @@
 from tkinter import Tk, Label, Entry, Button
 import tools.jsonOper
+from GUI import main as main_run
 
 
 SCRIPT_NAME = "base"
 DESCRIPTION = "Описание"
 
+
 class GUI:
-    def __init__(self, script_name):
+    def __init__(self, script_name, window):
             self.NAME = script_name
             self.main_mode = True if __name__ == "__main__" else False
             self.data = tools.jsonOper.loadKeysGuiMainMod() if self.main_mode else tools.jsonOper.loadKeysGui()
@@ -17,6 +19,7 @@ class GUI:
             self.GRID_COUNT = len(self.settings)
             self.window.geometry(f'650x{150+self.GRID_COUNT*30 if 150+self.GRID_COUNT*30 < 750 else 750}')
             self.grid_list = [Entry(self.window, width=10) for _ in range(self.GRID_COUNT)]
+            self.main_window = window
 
 
     def setting(self):
@@ -34,13 +37,18 @@ class GUI:
 
         self.data[self.NAME][0] = self.settings
         tools.jsonOper.saveKeysMainMod(self.data) if self.main_mode else tools.jsonOper.saveKeys(self.data)
-        exit(0)
+        self.destroy()
+
+    def destroy(self):
+        self.window.destroy()
+        self.main_window.destroy()
+        main_run()
 
     def reset(self):
         standart_data = tools.jsonOper.standart_keys(self.NAME)[0]  # tools.jsonOper.reset_all()
         self.data[self.NAME][0] = standart_data
         tools.jsonOper.onlySaveKeys(self.data) if self.main_mode else tools.jsonOper.saveKeys(self.data)
-        exit(0)
+        self.destroy()
 
     def do(self):
 
@@ -86,8 +94,8 @@ def name():
     return SCRIPT_NAME
 
 
-def run(script_name):
-    gui_class_run = GUI(script_name)
+def run(script_name, main_window):
+    gui_class_run = GUI(script_name, main_window)
     gui_class_run.do()
 
 

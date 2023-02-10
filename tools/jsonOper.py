@@ -20,6 +20,12 @@ spam_description = "Если оставить поля пустыми, то он
 domination_description = "Если domination 1 - будет \n" \
                          "зажимать ctrl, иначе 0"
 
+intBoost_description = "Откройте инвентарь, займите все ячейки\n" \
+                       "кроме последних двух. Затем в предпоследнюю\n" \
+                       "положите тушу 1000+. Запустите скрипт, когда\n" \
+                       "будете в активном окне игры. Сворачивать нельзя."
+
+
 def onlySaveKeys(keys):
 
     keys_data = json.dumps(keys)
@@ -151,14 +157,15 @@ dct = {
 
        "mentalTraining": [{
                         "activate_key": "",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
+                        "key1": {"name": "Клавиша водички", "value": "1"},
+                        "key2": {"name": "Количество повторений водички", "value": "15"},
+                        "key3": {"name": "Клавиша хила", "value": "2"},
+                        "key4": {"name": "Количество повторений хила", "value": "1"},
+                        "key5": {"name": "Клавиша отдыха", "value": "0"},
+                        "key6": {"name": "Время отдыха", "value": "50"},
+                        "key7": {"name": "Каст на себя", "value": "k"}
                     },
-                    "Описание"
+                    "Если хил не нужен - оставьте поле пустым."
                     ],
 
        "destroyerPickaxe": [{
@@ -189,28 +196,10 @@ dct = {
                     "Описание"
                     ],
 
-       "fluxing": [{
-                        "activate_key": "",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
-                    },
-                    "Описание"
-                    ],
-
        "intBoost": [{
                         "activate_key": "",
-                        "key1": {"name": "", "value": ""},
-                        "key2": {"name": "", "value": ""},
-                        "key3": {"name": "", "value": ""},
-                        "key4": {"name": "", "value": ""},
-                        "key5": {"name": "", "value": ""},
-                        "key6": {"name": "", "value": ""},
                     },
-                    "Описание"
+                    intBoost_description
                     ],
 
        "foliageHider": [{

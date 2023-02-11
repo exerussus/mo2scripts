@@ -23,7 +23,7 @@ class Settings_GUI:
             norm_name = normalize(i)
             name = i if norm_name is None else norm_name
 
-            lbl_name = Label(self.window_gui, text=f'{name}')
+            lbl_name = Label(self.window_gui, text=f'{name}', font='sans 9')
             lbl_name.grid(column=0, row=count)
 
             lbl_key = Button(self.window_gui, text=f'Настройка', command=partial(self.call, i))

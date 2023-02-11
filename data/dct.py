@@ -117,6 +117,8 @@ dct = {
 
        "intBoost": [{
                         "activate_key": "",
+                        "key2": {"name": "Ширина окна", "value": "1920"},
+                        "key3": {"name": "Высота окна", "value": "1080"},
                     },
                     intBoost_description
                     ],

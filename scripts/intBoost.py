@@ -13,6 +13,8 @@ class Script(BaseScript):
         self.name = "intBoost"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
+        self.window_w = int(self.keys["key2"]["value"])
+        self.window_h = int(self.keys["key3"]["value"])
         self.holding_left = False
         self.timer = 0
         self.toggle = False
@@ -20,6 +22,12 @@ class Script(BaseScript):
         self.loop = False
         pyautogui.FAILSAFE = False
         self.ready = False
+
+    def clc_x(self, x):
+        return round(x/1920 * self.window_w)
+
+    def clc_y(self, y):
+        return round(y/1080 * self.window_h)
 
     def custom(self):
 
@@ -29,7 +37,7 @@ class Script(BaseScript):
             self.hold('lshift')
             self.wait(0.1)
             self.hold('lshift')
-            autoit.mouse_click("right", speed=speed, x=1670, y=1000)
+            autoit.mouse_click("right", speed=speed, x=self.clc_x(1670), y=self.clc_y(1000))
             self.wait(0.1)
 
             self.release('lshift')
@@ -37,11 +45,11 @@ class Script(BaseScript):
             self.press('1')
             self.wait(0.05)
 
-            autoit.mouse_click("left", speed=speed, x=1720, y=1050)
+            autoit.mouse_click("left", speed=speed, x=self.clc_x(1720), y=self.clc_y(1050))
 
             self.wait(0.05)
-            autoit.mouse_click("right", speed=speed, x=1750, y=1030)
-            autoit.mouse_move(speed=speed, x=960, y=630)
+            autoit.mouse_click("right", speed=speed, x=self.clc_x(1750), y=self.clc_y(1030))
+            autoit.mouse_move(speed=speed, x=self.clc_x(960), y=self.clc_y(630))
             self.wait(0.05)
 
             autoit.mouse_down("left")

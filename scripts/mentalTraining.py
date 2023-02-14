@@ -9,7 +9,7 @@ class Script(BaseScript):
         self.name = "mentalTraining"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
-
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.spurt_key = self.keys["key1"]["value"]
         self.spurt_count = int(self.keys["key2"]["value"])
         self.healing_key = self.keys["key3"]["value"]

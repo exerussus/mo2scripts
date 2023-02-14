@@ -10,6 +10,7 @@ class Script(BaseScript):
         self.name = "destroyerPickaxe"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.durability = int(self.keys["key10"]["value"])
         self.durability_per_attack = float(self.keys["key11"]["value"])
         self.attacks_count = int(round(self.durability / self.durability_per_attack / 8))  # 1866  933  467  234

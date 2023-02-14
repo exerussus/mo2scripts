@@ -8,7 +8,7 @@ class Script(BaseScript):
         self.name = "spam"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
-
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.press_1 = self.keys["key1"]["value"]
         self.wait_1 = self.keys["key2"]["value"]
         self.hold_2 = self.keys["key3"]["value"]

@@ -13,6 +13,7 @@ class Script(BaseScript):
         self.name = "easyFlux"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.expel = self.keys["key1"]["value"]
         self.call_spirits = self.keys["key2"]["value"]
         self.attack_key = self.keys["key3"]["value"]

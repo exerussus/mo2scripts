@@ -16,6 +16,7 @@ class Script(BaseScript):
         self.name = "attacker"
         self.keys = self.keys_data[self.name][0]  # загрузка настройки всех ключей данного скрипта
         self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.overhead = self.keys["key1"]["value"]
         self.right = self.keys["key2"]["value"]
         self.left = self.keys["key3"]["value"]

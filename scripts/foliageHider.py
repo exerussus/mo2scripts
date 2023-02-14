@@ -20,7 +20,7 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.timer = 0
         self.toggle = False
         self.first = False
-        self.ready = False
+        self.ready = True if self.keys["activate_key"] != "" else False
 
         pyautogui.FAILSAFE = False
 

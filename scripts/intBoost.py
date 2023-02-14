@@ -20,8 +20,7 @@ class Script(BaseScript):
         self.toggle = False
         self.first = False
         self.loop = False
-        pyautogui.FAILSAFE = False
-        self.ready = False
+        self.ready = True if self.keys["activate_key"] != "" else False
 
     def clc_x(self, x):
         return round(x/1920 * self.window_w)

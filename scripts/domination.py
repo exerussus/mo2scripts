@@ -8,6 +8,7 @@ class Script(BaseScript):
         self.name = "domination"
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
+        self.ready = True if self.keys["activate_key"] != "" else False
         self.action_key = self.keys["key1"]["value"]
         self.holding_time = float(self.keys["key2"]["value"])
         self.domination = True if self.keys["key3"]["value"] == "1" else False

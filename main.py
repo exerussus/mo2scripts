@@ -1,5 +1,6 @@
 
 from scripts.base import BaseScript
+import pyautogui
 import os
 
 
@@ -22,9 +23,8 @@ class MortalScripts(BaseScript):
                         else:
                             print(f"Скрипт {script_class.name} не инициализирован - self.ready = False...")
 
-
     def run(self):
-
+        pyautogui.FAILSAFE = False
         while not self.exitKey:
             for script in self.scripts_pack:
                 script.run()

@@ -137,7 +137,7 @@ dct = {
                         "key1": {"name": "Ширина окна", "value": "1920"},
                         "key2": {"name": "Высота окна", "value": "1080"},
                     },
-                    "Описание"
+                    autoCraft_description
                     ],
 
        }

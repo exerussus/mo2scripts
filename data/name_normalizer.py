@@ -10,6 +10,7 @@ name_normalize_data = {
     'mentalTraining': 'Прокачка ментала',
     'spam': 'Собственный скрипт',
     'domination': 'Тэйминг\\Доминация',
+    'autoCraft': 'Прокачка крафта',
 
 }
 

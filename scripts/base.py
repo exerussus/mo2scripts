@@ -16,6 +16,8 @@ class BaseScript:
         self.keys = self.keys_data[self.name][0]
         self.keyActivate = self.keys["activate_key"]
         self.game = "Mortal Online 2  "
+        self.window_w = 1920
+        self.window_h = 1080
         self.exitKey = False
         self.isStop = False
         self.loop = True
@@ -122,6 +124,17 @@ class BaseScript:
         self.debug_log(f"released {key} key...")
         if not self.isStop and not self.exitKey:
             autoit.control_send(f"[TITLE:{self.game}]", "", "{" + f"{key} up" + "}")
+
+    def clc_x(self, x):
+        return round(x/1920 * self.window_w)
+
+    def clc_y(self, y):
+        return round(y/1080 * self.window_h)
+
+    def mouse_click(self, button, x, y, speed=1):
+        if not self.isStop and not self.exitKey:
+            autoit.mouse_click(button, speed=speed, x=self.clc_x(x), y=self.clc_y(y))
+            self.wait(0.1)
 
     def run(self):
         if keyboard.is_pressed(self.keyActivate): # if __name__ == "__main__" else True:

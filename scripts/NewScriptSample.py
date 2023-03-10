@@ -1,17 +1,35 @@
+import os
+
 from scripts.base import BaseScript  # обязательный импорт для наследования
+import tools.jsonOper
 
 
 class Script(BaseScript):  # Название класса (должен отличаться от других названий скриптов)
+
+    name = file_name = os.path.basename(__file__)[:-3]
+    config = {
+        "activate_key": "",
+        "key1": {"name": "", "value": ""},
+        "key2": {"name": "", "value": ""},
+        "key3": {"name": "", "value": ""},
+        "key4": {"name": "", "value": ""},
+        "key5": {"name": "", "value": ""},
+        "key6": {"name": "", "value": ""},
+    }
+    description = ""
+    keys = tools.jsonOper.loadKeys(name) if name != "NewScriptSample" else config
+    ready = True if keys["activate_key"] != "" else False
+
+
 
     def __init__(self):
         super().__init__()  # инициализация класса после наследования
 
         """                   Ключи - Обязательное                   """
 
-        self.name = "base"  # имя в базе ключей
-        self.keys = self.keys_data[self.name][0]  # загрузка настройки всех ключей данного скрипта
+        self.name = Script.name  # имя в базе ключей
+        self.keys = Script.keys  # загрузка настройки всех ключей данного скрипта
         self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
-        self.ready = True if self.keys["activate_key"] != "" else False
         # обязательно скопировать ключ-значение "base", и переименовать согласно значению в self.name
 
         """ Полезное, но имеющее значение по дефолту, удалить при ненадобности """

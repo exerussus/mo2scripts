@@ -1,3 +1,4 @@
+#!C:\Users\sokol\PycharmProjects\mo2scripts\venv\Scripts\python
 from tkinter import Tk, Label, Button
 import tools.jsonOper
 from settings import baseGUI
@@ -29,7 +30,7 @@ class Settings_GUI:
             lbl_key = Button(self.window_gui, text=f'Настройка', command=partial(self.call, i))
             lbl_key.grid(column=1, row=count)
 
-            lbl_action_key = Label(self.window_gui, text=f'{self.data[i][0]["activate_key"]}')
+            lbl_action_key = Label(self.window_gui, text=f'{self.data[i]["activate_key"]}')
             lbl_action_key.grid(column=2, row=count)
             count += 1
 

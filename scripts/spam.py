@@ -1,14 +1,39 @@
+import os
+
 from scripts.base import BaseScript
+import tools.jsonOper
 
 
 class Script(BaseScript):
 
+    name = file_name = os.path.basename(__file__)[:-3]
+    config = {
+        "activate_key": "f5",
+        "key1": {"name": "1. Кнопка нажатия", "value": ""},
+        "key2": {"name": "1. Пауза после нажатия", "value": ""},
+
+        "key3": {"name": "2. Кнопка зажатия", "value": ""},
+        "key4": {"name": "2. Время зажатия", "value": ""},
+
+        "key5": {"name": "1-2. Количество повторений", "value": ""},
+
+        "key6": {"name": "3. Кнопка нажатия", "value": ""},
+        "key7": {"name": "3. Пауза после нажатия", "value": ""},
+
+        "key8": {"name": "4. Кнопка зажатия", "value": ""},
+        "key9": {"name": "4. Время зажатия", "value": ""},
+
+        "key10": {"name": "3-4. Количество повторений", "value": ""},
+    }
+    description = ""
+    keys = tools.jsonOper.loadKeys(name)
+    ready = True if keys["activate_key"] != "" else False
+
     def __init__(self):
         super().__init__()
-        self.name = "spam"
-        self.keys = self.keys_data[self.name][0]
+        self.name = Script.name
+        self.keys = Script.keys
         self.keyActivate = self.keys["activate_key"]
-        self.ready = True if self.keys["activate_key"] != "" else False
         self.press_1 = self.keys["key1"]["value"]
         self.wait_1 = self.keys["key2"]["value"]
         self.hold_2 = self.keys["key3"]["value"]

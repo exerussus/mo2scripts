@@ -12,8 +12,8 @@ class GUI:
             self.NAME = script_name
             self.main_mode = True if __name__ == "__main__" else False
             self.data = tools.jsonOper.loadKeysGuiMainMod() if self.main_mode else tools.jsonOper.loadKeysGui()
-            self.settings = self.data[self.NAME][0]
-            self.descriptions = self.data[self.NAME][1]
+            self.settings = self.data[self.NAME]
+            self.descriptions = tools.jsonOper.get_description(self.NAME)
             self.window = Tk()
             self.window.title(f"Mortal Online 2 Scripts {self.NAME} Settings")
             self.GRID_COUNT = len(self.settings)
@@ -35,7 +35,7 @@ class GUI:
 
             count += 1
 
-        self.data[self.NAME][0] = self.settings
+        self.data[self.NAME] = self.settings
         tools.jsonOper.saveKeysMainMod(self.data) if self.main_mode else tools.jsonOper.saveKeys(self.data)
         self.destroy()
 
@@ -45,8 +45,8 @@ class GUI:
         main_run()
 
     def reset(self):
-        standart_data = tools.jsonOper.standart_keys(self.NAME)[0]  # tools.jsonOper.reset_all()
-        self.data[self.NAME][0] = standart_data
+        standard_data = tools.jsonOper.standard_keys(self.NAME)  # tools.jsonOper.reset_all()
+        self.data[self.NAME] = standard_data
         tools.jsonOper.onlySaveKeys(self.data) if self.main_mode else tools.jsonOper.saveKeys(self.data)
         self.destroy()
 
@@ -65,8 +65,8 @@ class GUI:
                     count_row += 1
 
                 else:
-
-                    lbl_name = Label(self.window, text=f'{self.settings[i]["name"]}  ')
+                    _name = self.settings[i]["name"]
+                    lbl_name = Label(self.window, text=f'{_name}  ')
                     lbl_name.grid(column=0, row=count_row)
 
                     lbl_key = Label(self.window, text=f'    {self.settings[i]["value"]}')

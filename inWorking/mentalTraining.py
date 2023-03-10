@@ -20,7 +20,7 @@ class Script(BaseScript):
         if self.healing_count != "" and self.healing_key != "":
             self.healing_count = int(self.healing_count)
 
-        self.ready = False
+        self.ready = True
 
     def water_pushing(self):
 

@@ -1,5 +1,5 @@
 # СЕНСА НА 30%
-
+import os
 import random
 import time
 
@@ -7,16 +7,34 @@ import win32con
 
 from scripts.base import BaseScript
 import win32, win32api, win32gui
+import tools.jsonOper
 
 
 class Script(BaseScript):
 
+    name = file_name = os.path.basename(__file__)[:-3]
+    config = {
+        "activate_key": "f3",
+        "key1": {"name": "Удар сверху", "value": "q"},
+        "key2": {"name": "Удар справа", "value": "g"},
+        "key3": {"name": "Удар слева", "value": "h"},
+        "key4": {"name": "Удар снизу", "value": "f"},
+        "key5": {"name": "Мод", "value": "1"},
+        "key6": {"name": "Ожидание между ударами", "value": "0.6"},
+        "key7": {"name": "Время зарядки удара", "value": "0.1"},
+        "key8": {"name": "Финт", "value": "e"},
+        "key9": {"name": "Включить финты", "value": "0"},
+        "key10": {"name": "Включить повороты", "value": "0"},
+    }
+    description = ""
+    keys = tools.jsonOper.loadKeys(name)
+    ready = True if keys["activate_key"] != "" else False
+
     def __init__(self):
         super().__init__()
-        self.name = "attacker"
-        self.keys = self.keys_data[self.name][0]  # загрузка настройки всех ключей данного скрипта
+        self.name = Script.name
+        self.keys = Script.keys  # загрузка настройки всех ключей данного скрипта
         self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
-        self.ready = True if self.keys["activate_key"] != "" else False
         self.overhead = self.keys["key1"]["value"]
         self.right = self.keys["key2"]["value"]
         self.left = self.keys["key3"]["value"]

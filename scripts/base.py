@@ -5,23 +5,36 @@ import autoit
 import pyautogui
 
 import tools.jsonOper
+import os
 
 
 class BaseScript:
 
+    name = file_name = os.path.basename(__file__)[:-3]
+    config = {
+        "activate_key": "",
+        "key1": {"name": "", "value": ""},
+        "key2": {"name": "", "value": ""},
+        "key3": {"name": "", "value": ""},
+        "key4": {"name": "", "value": ""},
+        "key5": {"name": "", "value": ""},
+        "key6": {"name": "", "value": ""},
+    }
+    description = ""
+    keys = tools.jsonOper.loadKeys(name) if name != "base" else config
+    ready = True if keys["activate_key"] != "" else False
+
     def __init__(self):
 
-        self.keys_data = tools.jsonOper.loadKeys() # if __name__ == "__main__" else tools.jsonOper.onlyLoadKeys()
         self.name = "base"
-        self.keys = self.keys_data[self.name][0]
-        self.keyActivate = self.keys["activate_key"]
+        self.keys = BaseScript.keys
+        self.keyActivate = BaseScript.config # self.keys["activate_key"]
         self.game = "Mortal Online 2  "
         self.window_w = 1920
         self.window_h = 1080
         self.exitKey = False
         self.isStop = False
         self.loop = True
-        self.ready = True
         self.debug = True
 
     def debug_log(self, value: str, debug_show=True):
@@ -61,6 +74,7 @@ class BaseScript:
         if keyboard.is_pressed("f9"):
             self.exitKey = True
             self.debug_log(f"F9 pressed...")
+            exit(0)
 
     def checkStopKey(self):
         if keyboard.is_pressed("f7"):

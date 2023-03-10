@@ -4,7 +4,7 @@ from data.descriptions import *
 
 dct = {
     "base": [{
-                        "activate_key": "",
+                        "activate_key": "f12",
                         "key1": {"name": "", "value": ""},
                         "key2": {"name": "", "value": ""},
                         "key3": {"name": "", "value": ""},
@@ -138,6 +138,17 @@ dct = {
                         "key2": {"name": "Высота окна", "value": "1080"},
                     },
                     autoCraft_description
+                    ],
+       "costFree": [{
+                        "activate_key": "",
+                        "key1": {"name": "Клавиша активации", "value": "q"},
+                        "key2": {"name": "Клавиша каста", "value": "1"},
+                        "key3": {"name": "Количество кастов", "value": "10"},
+                        "key4": {"name": "Клавиша отдыха", "value": "0"},
+                        "key5": {"name": "Время отдыха", "value": "40"},
+                        "key6": {"name": "Время каста", "value": "4"},
+                    },
+                    costFree_description
                     ],
 
        }

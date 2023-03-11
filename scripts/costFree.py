@@ -51,7 +51,7 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.cast_key = self.keys["key2"]["value"]
         self.cast_count = int(self.keys["key3"]["value"])
         self.rest_key = self.keys["key4"]["value"]
-        self.rest_seconds = self.keys["key5"]["value"]
+        self.rest_seconds = float(self.keys["key5"]["value"])
         self.cast_time = float(self.keys["key6"]["value"])
         self.cast_twice = True if self.keys["key7"]["value"] == "1" else False
         self.inventory_x = None
@@ -96,15 +96,22 @@ class Script(BaseScript):  # Название класса (должен отл�
                 break
 
         while not self.isStop and not self.exitKey:
+            additional_waiting = 0.4
             for _ in range(self.cast_count):
+                self.hold("w")
                 self.press(self.cast_key)
                 self.inventory_press()
-                self.wait(self.cast_time + 0.2)
+                self.wait(self.cast_time)
+                self.release("w")
+                self.hold("s")
+
                 if self.cast_twice:
                     self.press(self.cast_key)
                     self.wait(0.3)
+                self.wait(additional_waiting)
+                self.release("s")
                 self.bank_press()
-                self.wait(0.3)
+                self.wait(0.01)
 
             self.press(self.rest_key)
             self.wait(self.rest_seconds)

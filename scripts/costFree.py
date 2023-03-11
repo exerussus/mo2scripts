@@ -18,7 +18,8 @@ class Script(BaseScript):  # Название класса (должен отл�
         "key4": {"name": "Клавиша отдыха", "value": "0"},
         "key5": {"name": "Время отдыха", "value": "40"},
         "key6": {"name": "Время каста", "value": "4"},
-        "key7": {"name": "Повторное нажатие для каста", "value": "1"},
+        "key7": {"name": "Повторное нажатие для каста 1/0", "value": "1"},
+        "key8": {"name": "Включить движение 1/0", "value": "1"},
     }
     description = "После запуска скрипта, надо навести мышь\n" \
                   "на ячейку инвентаря и нажать клавишу активации.\n" \
@@ -55,6 +56,7 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.rest_seconds = float(self.keys["key5"]["value"])
         self.cast_time = float(self.keys["key6"]["value"])
         self.cast_twice = True if self.keys["key7"]["value"] == "1" else False
+        self.moving_mode = True if self.keys["key8"]["value"] == "1" else False
         self.inventory_x = None
         self.inventory_y = None
         self.bank_x = None
@@ -79,6 +81,9 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.wait(0.2)
         self.right_mouse_press(x=self.inventory_x, y=self.inventory_y)
 
+    def nothing(self):
+        return None
+
     def custom(self):  # Главный метод, весь код писать сюда
         print(f"Ожидание нажатия {self.set_position_key} для инвентаря...")
         while True:
@@ -99,18 +104,22 @@ class Script(BaseScript):  # Название класса (должен отл�
         while not self.isStop and not self.exitKey:
             additional_waiting = 0.4
             for _ in range(self.cast_count):
-                self.hold("w")
+                self.hold("w") if self.moving_mode and not self.cast_twice else self.nothing()
                 self.press(self.cast_key)
                 self.inventory_press()
                 self.wait(self.cast_time)
-                self.release("w")
-                self.hold("s")
+                self.release("w") if self.moving_mode and not self.cast_twice else self.nothing()
+                self.hold("s") if self.moving_mode else self.nothing()
 
                 if self.cast_twice:
+                    self.hold("s") if self.moving_mode else self.nothing()
                     self.press(self.cast_key)
                     self.wait(0.3)
+                    self.release("s") if self.moving_mode else self.nothing()
+                self.hold("w") if self.moving_mode and self.cast_twice else self.nothing()
                 self.wait(additional_waiting)
-                self.release("s")
+                self.release("w") if self.moving_mode and self.cast_twice else self.nothing()
+                self.release("s") if self.moving_mode and not self.cast_twice else self.nothing()
                 self.bank_press()
                 self.wait(0.01)
 

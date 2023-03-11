@@ -16,8 +16,14 @@ name_normalize_data = {
 }
 
 
-def do(name):
-    if name in name_normalize_data:
-        return name_normalize_data[name]
-    else:
-        return None
+def do(script_name: str):
+    exec(f"import scripts.{script_name}")
+    script_class = eval(f"scripts.{script_name}.Script")
+    return script_class.russian
+
+#
+# def do(name):
+#     if name in name_normalize_data:
+#         return name_normalize_data[name]
+#     else:
+#         return None

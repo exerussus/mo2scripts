@@ -27,6 +27,7 @@ class Script(BaseScript):
         "key10": {"name": "Включить повороты", "value": "0"},
     }
     description = ""
+    russian = "Тренька парри"
     keys = tools.jsonOper.loadKeys(name)
     ready = True if keys["activate_key"] != "" else False
 

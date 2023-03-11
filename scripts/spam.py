@@ -26,6 +26,7 @@ class Script(BaseScript):
         "key10": {"name": "3-4. Количество повторений", "value": ""},
     }
     description = ""
+    russian = 'Собственный скрипт'
     keys = tools.jsonOper.loadKeys(name)
     ready = True if keys["activate_key"] != "" else False
 

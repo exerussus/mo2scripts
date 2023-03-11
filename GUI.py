@@ -1,9 +1,9 @@
-#!C:\Users\sokol\PycharmProjects\mo2scripts\venv\Scripts\python
+
 from tkinter import Tk, Label, Button
 import tools.jsonOper
 from settings import baseGUI
 from functools import partial
-from data.name_normalizer import do as normalize
+from tools.name_translater import do as normalize
 
 
 class Settings_GUI:

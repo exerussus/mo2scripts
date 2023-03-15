@@ -2,17 +2,30 @@ from scripts.base import BaseScript  # обязательный импорт д�
 import pyautogui
 import keyboard
 import autoit
+import os
+from tools import jsonOper
 
 class Script(BaseScript):  # Название класса (должен отличаться от других названий скриптов)
 
+    name = file_name = os.path.basename(__file__)[:-3]
+    config = {
+        "activate_key": "f4",
+        "key1": {"name": "Кнопка перезагрузки листвы (любая кроме f7 и f9)", "value": "f4"},
+        "key2": {"name": "Ширина окна", "value": "1920"},
+        "key3": {"name": "Высота окна", "value": "1080"},
+    }
+    description = ""
+    russian = 'Отключение листвы'
+    keys = jsonOper.loadKeys(name)
+    ready = True if keys["activate_key"] != "" else False
     def __init__(self):
         super().__init__()  # инициализация класса после наследования
 
         """                   Ключи - Обязательное                   """
 
-        self.name = "foliageHider"
-        self.keys = self.keys_data[self.name][0]
-        self.keyActivate = self.keys["activate_key"]
+        self.name = Script.name  # имя в базе ключей
+        self.keys = Script.keys # загрузка настройки всех ключей данного скрипта
+        self.keyActivate = self.keys["activate_key"]  # кнопка активации скрипта
         self.reload_foliage_key = self.keys["key1"]["value"]
         self.window_w = int(self.keys["key2"]["value"])
         self.window_h = int(self.keys["key3"]["value"])
@@ -20,7 +33,6 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.timer = 0
         self.toggle = False
         self.first = False
-        self.ready = True if self.keys["activate_key"] != "" else False
 
         pyautogui.FAILSAFE = False
 

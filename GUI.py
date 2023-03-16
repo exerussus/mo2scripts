@@ -1,4 +1,4 @@
-#!C:\Users\sokol\PycharmProjects\mo2scripts\venv\Scripts\python
+
 from tkinter import Tk, Label, Button
 import tools.jsonOper
 from settings import baseGUI

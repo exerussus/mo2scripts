@@ -83,7 +83,7 @@ class Script(BaseScript):  # Название класса (должен отл�
         self.skill_x_y = None
         self.skill_pixel = None
 
-        self.value_for_count_without_result = 10
+        self.value_for_count_without_result = 30
         self.count_without_result = self.value_for_count_without_result
 
     def cast_time_selector(self, cast_key):

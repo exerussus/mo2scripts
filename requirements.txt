@@ -3,3 +3,4 @@ pyautogui
 keyboard
 pywin32
 mouse
+pillow

@@ -55,11 +55,13 @@ class Settings_GUI:
 
     def reinit_key(self):
         tools.jsonOper.reset_all()
+        self.data = tools.jsonOper.loadKeysGui()
         self.window_gui.destroy()
         main()
 
     def start(self):
         from main import run as program_run
+        self.data = tools.jsonOper.loadKeysGui()
         self.window_gui.destroy()
         program_run()
 
